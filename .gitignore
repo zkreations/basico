@@ -1,0 +1,11 @@
+node_modules
+.cache.json
+package-lock.json
+
+*-pro.*
+
+
+# gohugo
+_site/
+resources/
+.hugo_build.lock
