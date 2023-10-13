@@ -1,0 +1,50 @@
+{{!-- 
+Create post share
+@param {object} params - Share parameters ( url, title )
+@param {string} [class] - Additional class
+@param {array} [list] - List of social networks to display
+--}}
+<b:includable id='@shared'>
+  <b:if cond='data:params and (data:params.url and data:params.title)'>
+    <b:with value='[
+        { name: "facebook", url: "https://www.facebook.com/sharer.php" },
+        { name: "twitter", url: "https://twitter.com/intent/tweet" },
+        { name: "pinterest", url: "https://pinterest.com/pin/create/button/" },
+        { name: "whatsapp", url: "https://wa.me/" },
+        { name: "telegram", url: "https://t.me/share/url" },
+        { name: "tumblr", url: "https://tumblr.com/widgets/share/tool" },
+        { name: "reddit", url: "https://reddit.com/submit" },
+        { name: "vk", url: "http://vk.com/share.php" },
+        { name: "linkedin", url: "https://www.linkedin.com/sharing/share-offsite/" }
+      ]' var='platforms'>
+    <b:with value='data:platforms filter (p => p.name in (data:list + "."))' var='availablePlatforms'>
+      <b:if cond='data:availablePlatforms.any'>
+        <div class='share-buttons'>
+          <b:class cond='data:class' expr:name='data:class'/>
+          {{!-- Loop through platforms --}}
+          <b:loop values='data:availablePlatforms' var='platform'>
+            <a class='share-button' expr:href='params(data:platform.url, data:params)'>
+              {{!-- Add target and rel attributes --}}
+              <b:attr name='target' value='_blank'/>
+              <b:attr name='rel' value='noopener nofollow'/>
+              <b:attr name='aria-label' expr:value='data:platform.name'/>
+              {{!-- if platform is whatsapp, add text parameter --}}
+              <b:attr cond='data:platform.name == "whatsapp"' expr:value='params(data:platform.url,{
+                  text: (data:params.title + " " + data:params.url)
+                })' name='href'/>
+              {{!-- if platform is facebook, add u parameter --}}
+              <b:attr cond='data:platform.name == "facebook"' expr:value='params(data:platform.url,{
+                  u: data:params.url
+                })' name='href'/>
+              {{!-- Determine the icon to display --}}
+              <b:include name='@meteor' data='{ icon: data:platform.name }'/>
+            </a>
+          </b:loop>
+        </div>
+      </b:if>
+    </b:with>
+    </b:with>
+  <b:else/>
+    <b:comment render='true'>Missing share parameters</b:comment>
+  </b:if>
+</b:includable>

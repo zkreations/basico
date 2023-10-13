@@ -1,0 +1,38 @@
+{{!--
+Posts Settings
+--}}
+[boolean] Show ads on pages.
+{{variable "p.adsOnPage" value="false"}}
+
+[boolean] Show ads on posts.
+{{variable "p.adsOnPosts" value="true"}}
+
+[boolean] Enable copy code button.
+{{variable "p.codeButton" value="true"}}
+
+[boolean] Enable highlight.js if code is detected.
+{{variable "p.codeHighlight" value="false"}}
+
+[boolean] Show pagination on posts.
+{{variable "p.postPagination" value="true"}}
+
+[boolean] Show related posts.
+{{variable "p.related" value="true"}}
+
+[number] Number of related posts to show. (1-12)
+{{variable "p.relatedCount" value="5"}}
+
+[string] Minimum width of each related element
+{{variable "p.relatedMinWidth" value="8rem"}}
+
+[number] Randomness of related posts. (1-99)
+{{variable "p.relatedShuffle" value="5"}}
+
+[list] Show specific share buttons. (facebook, twitter, whatsapp, telegram, pinterest, tumblr, reddit, vk, linkedin)
+{{variable "p.shareOn" value="facebook, twitter, whatsapp, telegram"}}
+
+[list] TOC headings. (h1, h2, h3, h4, h5, h6)
+{{variable "p.tocHeadings" value="h2, h3, h4"}}
+
+[boolean|string] Enable auto TOC. (before-first-h, after-first-h, before-first-p, after-first-p)
+{{variable "p.tocOn" value="false"}}

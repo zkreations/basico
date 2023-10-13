@@ -1,0 +1,53 @@
+{{!--
+Module for head content
+@author zkreations
+--}}
+<b:includable id='m:head'>
+  <b:with value='{
+      ogImage: data:skin.vars.c_ogImage,
+      favicon: data:skin.vars.c_favicon,
+      editShortcut: data:skin.vars.a_editShortcut,
+      jumpLinkAlert: data:skin.vars.a_jumpLinkAlert,
+      uiScheme: data:skin.vars.c_uiScheme,
+      uiToggle: data:skin.vars.c_uiToggle
+    }' var='var'>
+    {{!-- Meta tags --}}
+    <b:include name='@meta' data='{ ogImage: data:var.ogImage, favicon: data:var.favicon }'/>
+
+    {{!-- Create a meta tag for the blog ID --}}
+    <b:if cond="data:view.isMultipleItems and (data:var.editShortcut or data:var.jumpLinkAlert)">
+      <meta name='home-blog-admin' expr:content='data:blog.blogId'/>
+    </b:if>
+
+    {{!-- Color scheme meta --}}
+    <meta name='color-scheme' expr:content='["dark","light"] contains data:var.uiScheme ? data:var.uiScheme : "light"'/>
+
+    {{!-- Check current mode --}}
+    <b:if cond='data:var.uiToggle'>
+      <script>
+      //<![CDATA[
+        const html = document.documentElement
+        const meta = document.querySelector('meta[name="color-scheme"]')
+        const savedTheme = localStorage.getItem('current_theme')
+        const currentTheme = savedTheme || html.dataset.theme || 'light'
+        html.dataset.theme = currentTheme
+        meta.content = currentTheme
+      //]]>
+      </script>
+    </b:if>
+
+    {{!-- Google Scripts --}}
+    <b:include name='@adsense'/>
+    <b:include name='@analytics'/>
+
+    {{!-- Preconnect Resources --}}
+    <link href='https://fonts.bunny.net' rel='preconnect'/>
+    <link href='https://blogger.googleusercontent.com' rel='preconnect'/>
+
+    {{!-- Preload Fonts --}}
+    <b:with value='"https://fonts.bunny.net/css" params { family: "roboto:300,400,500,700", display: "swap" }' var='fonts'>
+      <link rel='preload' expr:href='data:fonts' as='style'/>
+      <link expr:href='data:fonts' rel='stylesheet' />
+    </b:with>
+  </b:with>
+</b:includable>

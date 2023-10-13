@@ -1,0 +1,23 @@
+{{!--
+Partial: Footer content
+@author zkreations
+--}}
+<b:section id='footer' maxwidgets='2'>
+  {{!-- Custom LinkList widget (Social Networks) --}}
+  <b:widget type='LinkList' title='Social Networks' version='2' locked='true'>
+    <b:includable id='main'>
+      <b:include name='widget:LinkList_SocialNetworks'/>
+    </b:includable>
+    <b:includable id='content'/>
+  </b:widget>
+  {{!-- Custom HTML widget (Copyright) --}}
+  <b:widget type='HTML' title='Copyright' version='2' locked='true'>
+    <b:widget-settings>
+      <b:widget-setting name='content'><![CDATA[Developed by <a href="https://zkreations.com" rel="noopener noreferrer nofollow" target="_blank" property="cc:attributionName">zkreations</a> — © Your Copyright 2023]]></b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+      <b:include name='widget:HTML_Copyright'/>
+    </b:includable>
+    <b:includable id='content'/>
+  </b:widget>
+</b:section>

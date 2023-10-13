@@ -1,0 +1,15 @@
+.fs {
+  @include utility(font-size, $font-size-values, true)
+}
+
+.fw {
+  @include utility(font-weight, $font-weight-values)
+}
+
+.text {
+  @include utility(text-align, center left right justify)
+}
+
+@include utility(text-transform, capitalize uppercase lowercase);
+
+@include utility(text-decoration, underline line-through);

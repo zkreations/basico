@@ -1,0 +1,60 @@
+{{!--
+Create a menu from a list of links
+@author zkreations
+@param {string} [prefix="__"] - Prefix for filter links
+@param {array} [links] - Array of links
+--}}
+<b:includable id='@menu'>
+  <b:with value='data:prefix ?: "__"' var='prefix'>
+    {{!-- Check if the first element contains the prefix --}}
+    <b:if cond='data:links[0].title contains data:prefix'>
+      <b:comment render='true'>The first element can't have the prefix</b:comment>
+    {{!-- Check if the element is a number --}}
+    <b:elseif cond='data:links any (l => l.title + 0 == l.title)'/>
+      <b:comment render='true'>The element can't be a number</b:comment>
+    {{!-- Start the menu --}}
+    <b:else/>
+      <ul class='nav'>
+        <b:if cond='data:links.any'>
+          <b:loop index='i' values='data:links' var='link'>
+            {{!--
+            start: Check if the next element contains the prefix
+            end: Check if the next element doesn't contain the prefix
+            --}}
+            <b:with value='{
+                start: ((data:links[data:i + 1].title contains data:prefix) and (data:link.title not contains data:prefix)),
+                end: ((data:links[data:i + 1].title not contains data:prefix) and (data:link.title contains data:prefix))
+              }' var='menu'>
+              {{!-- Create a element of the menu --}}
+              &lt;li class=&quot;nav-item<b:if cond='data:menu.start'> has-subnav</b:if>&quot;&gt;
+              {{!-- Create a link --}}
+              <a class='nav-link' expr:href='data:link.href'>
+                <b:class cond='data:menu.start' name='has-toggle'/>
+                {{!-- Check if the link contains ref parameter --}}
+                <b:if cond='data:link.href contains "?ref="'>
+                  <b:attr name='target' value='_blank'/>
+                  <b:attr name='rel' value='noopener noreferrer nofollow'/>
+                </b:if>
+                <data:link.title/>
+              </a>
+              {{!-- Start the submenu --}}
+              <b:if cond='data:menu.start'>
+                <button class='nav-item-toggle' aria-label='toggle'>+</button>
+                &lt;ul class=&quot;nav-subnav&quot;&gt;
+              </b:if>
+              {{!-- End the submenu --}}
+              <b:if cond='data:menu.end'>&lt;/li&gt;&lt;/ul&gt;</b:if>
+              {{!-- End the element of the menu --}}
+              <b:if cond='!data:menu.start'>&lt;/li&gt;</b:if>
+            </b:with>
+          </b:loop>
+        {{!-- If the array is empty --}}
+        <b:else/>
+          <li class='nav-item'>
+            <span class='nav-link'><data:messages.noTitle/></span>
+          </li>
+        </b:if>
+      </ul>
+    </b:if>
+  </b:with>
+</b:includable>

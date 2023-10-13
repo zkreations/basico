@@ -1,0 +1,96 @@
+.comments {
+
+  >*+* {
+    margin-top: var(--comment-gap);
+  }
+
+  &-content > * + * {
+    margin-top: var(--comment-gap);
+  }
+
+  &-replies {
+    margin-top: var(--comment-gap);
+    padding-inline-start: 1.5rem;
+    border-inline-start: 2px solid var(--color-border);
+
+    >*+* {
+      margin-top: 2rem
+    }
+
+    &:not(:where(.has-reply-form, .has-replies)) {
+      display: none;
+    }
+  }
+
+  &-load:checked + label,
+  &-load:not(:checked) ~ & {
+    display: none;
+  }
+
+  iframe{
+    color-scheme: auto
+  }
+
+  @at-root [data-theme=dark] & iframe[src*="disqus.com"]{
+    color-scheme:dark
+  }
+}
+
+.comment {
+  // components
+  &-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &-iframe {
+    padding: 1rem;
+    background-color: var(--bg-inset);
+
+    iframe {
+      width: 100%;
+    }
+  }
+
+  &-author {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-weight: 500;
+  }
+
+  &-badge {
+    --i-size: 18px;
+  }
+
+  &-time {
+    display: block;
+    color: var(--color-subtle);
+  }
+
+  &-footer {
+    margin-top: 1rem;
+    display: flex;
+  }
+
+  &-restore-button {
+    padding: 1rem;
+    width: 100%;
+
+    &:not(.is-replying) {
+      display: none
+    }
+  }
+
+  &-reply-button {
+    padding: 0.25rem;
+    margin-inline-end: 0.5rem;
+  }
+
+  &-delete-button {
+    padding: 0.25rem;
+  }
+}
+

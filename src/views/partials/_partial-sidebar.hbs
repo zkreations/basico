@@ -1,0 +1,22 @@
+{{!--
+Partial: Sidebar content
+@author zkreations
+--}}
+<b:with value='{ 
+    postSidebar: ((data:view.isPost or data:view.isLayoutMode) and data:skin.vars.f_postSidebar),
+    pageSidebar: ((data:view.isPage or data:view.isLayoutMode) and data:skin.vars.f_pageSidebar)
+  }' var='show'>
+  <b:if cond='!(data:show.postSidebar or data:show.pageSidebar)'>
+    <b:section class='sidebar flex column g-1.25' id='sidebar' ads='true'>
+      <b:widget type='BlogSearch' version='2'/>
+      <b:widget type='PopularPosts' version='2'/>
+      <b:widget type='Label' version='2'/>
+    </b:section>
+  </b:if>
+  <b:if cond='data:show.postSidebar'>
+    <b:section class='sidebar flex column g-1.25' id='post-sidebar'/>
+  </b:if>
+  <b:if cond='data:show.pageSidebar'>
+    <b:section class='sidebar flex column g-1.25' id='page-sidebar'/>
+  </b:if>
+</b:with>

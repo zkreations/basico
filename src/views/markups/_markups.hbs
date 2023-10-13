@@ -1,0 +1,96 @@
+{{!-- 
+Default markups for all widgets
+@author zkreations
+@docs https://bloggercode-blogconnexion.blogspot.com/2017/05/tag-b-defaultmarkups.html
+--}}
+<b:comment>THEME_CORE ({{version}}): Do not make changes!</b:comment>
+<b:defaultmarkups>
+  {{!-- Clean all inclusions of all widgets automatically  --}}
+  {{#each defaultIncludables}}
+  <b:defaultmarkup type='{{@key}}'>
+    {{#each this}}
+    <b:includable id='{{this}}'/>
+    {{/each}}
+  </b:defaultmarkup>
+  {{/each}}
+  {{!-- Add default markups --}}
+  <b:defaultmarkup type='Common'>
+    {{!-- functions --}}
+    {{> @ads}}
+    {{> @adsense}}
+    {{> @analytics}}
+    {{> @attr}}
+    {{> @avatar}}
+    {{> @image}}
+    {{> @kind}}
+    {{> @menu}}
+    {{> @meta}}
+    {{> @picture}}
+    {{> @shared}}
+    {{> @snippet}}
+    {{!-- components --}}
+    {{> document}}
+    {{> enqueue}}
+    {{> head}}
+    {{> foot}}
+    {{> layout}}
+    {{> faq}}
+    {{> postAttachments}}
+    {{> postCard}}
+    {{> postComments}}
+    {{> postInlineAd}}
+    {{> postMeta}}
+    {{> postPagination}}
+    {{> postRelated}}
+    {{> postView}}
+    {{!-- widgets (Read-only excluded: Attribution, Followers) --}}
+    {{> AdSense}}
+    {{> Blog}}
+    {{> BlogArchive}}
+    {{> BlogSearch}}
+    {{> ContactForm}}
+    {{> FeaturedPost}}
+    {{> Header}}
+    {{> HTML}}
+    {{> Image}}
+    {{> Label}}
+    {{> LinkList}}
+    {{> PageList}}
+    {{> PopularPosts}}
+    {{> Profile}}
+    {{> Text}}
+    {{> TextList}}
+    {{!-- Server-side --}}
+    {{> superWidgetTitle}}
+    {{> superNoContent}}
+    {{!-- Packages --}}
+    {{asset '~/meteor-icons/variants/icons.xml'}}
+  </b:defaultmarkup>
+  {{!-- Add default markups for all widgets --}}
+  <b:defaultmarkup type='All'>
+    <b:includable id='main' var='this'>
+      <b:include name='widget-title'/>
+      <b:include name='content'/>
+    </b:includable>
+    <b:includable id='content'>
+      {{!-- Add a wrapper for all widgets --}}
+      <div class='widget-content'>
+        <b:include expr:name='"widget:" + data:widget.type'/>
+      </div>
+    </b:includable>
+  </b:defaultmarkup>
+  {{!-- AdSense, Header and Blog widgets not require a wrapper or a title --}}
+  <b:defaultmarkup type='AdSense,Header,Blog'>
+    <b:includable id='main' var='this'>
+      <b:include name='@attr' data='{["id"],["data-version"]}'/>
+      <b:include expr:name='"widget:" + data:widget.type'/>
+    </b:includable>
+    <b:includable id='content'/>
+  </b:defaultmarkup>
+  {{!-- Unnecessary or unused widgets --}}
+  <b:defaultmarkup type='BloggerButton,BlogList,Feed,ReportAbuse,Stats,Translate,Wikipedia'>
+    <b:includable id='main'/>
+    <b:includable id='content'/>
+  </b:defaultmarkup>
+</b:defaultmarkups>
+<b:comment>/END THEME_CORE</b:comment>

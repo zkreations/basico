@@ -1,0 +1,34 @@
+.accordion {
+  details {
+    margin: 0;
+    padding: var(--form-padding);
+    border-top: 1px solid var(--color-border);
+
+    &:last-child {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    &[open] summary::after {
+      content: get-unicode("2212");
+    }
+  }
+
+  summary {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &::after {
+      content: get-unicode("002B");
+      font-size: 21px;
+      line-height: 1;
+      font-weight: 300;
+    }
+  }
+
+  &-item {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}

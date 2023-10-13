@@ -1,0 +1,13 @@
+.blog-pager {
+  &:not(&-post) {
+    margin-top: 1rem;
+
+    @include breakpoint(m) {
+      margin-top: 2.5rem;
+    }
+  }
+}
+
+.pager-button {
+  // Button styles
+}

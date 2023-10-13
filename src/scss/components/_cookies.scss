@@ -1,0 +1,41 @@
+#cookieChoiceInfo {
+  padding: 1.5rem;
+  inset: auto 0 0;
+  line-height: 1.5;
+  background-color: rgba(24,25,30,.9);
+  animation: 1s forwards cookies;
+  transform: translateY(200%);
+
+  .cookie-choices {
+    &-inner {
+      text-align: left;
+    }
+
+    &-text {
+      margin: 0;
+      display: inline;
+      color: var(--white);
+      font-size: 1rem;
+    }
+
+    &-buttons {
+      display: inline;
+    }
+
+    &-button {
+      text-transform: initial;
+      font-weight: 500;
+      margin: 0;
+  
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+}
+
+@keyframes cookies {
+  to {
+    transform: translateY(0);
+  }
+}

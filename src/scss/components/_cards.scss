@@ -1,0 +1,56 @@
+// Cards Content
+.cards {
+  > * + * {
+    margin-top: 2rem;
+
+    @include breakpoint(m) {
+      margin-top: 3.5rem;
+    }
+  }
+}
+
+
+// Individual card
+.card {
+  line-height: 1.75;
+  // Content of the card
+  &-content {
+    position: relative;
+    display: block;
+  }
+
+  &-body {
+    @include breakpoint(m) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  &-title {
+    &-link:not(:hover) {
+      color: var(--color-title);
+    }
+  }
+
+  &-snippet {
+    // Code snippet
+  }
+
+  &-image {
+    background-color: var(--bg-inset);
+    margin-bottom: 1rem;
+    
+    @include breakpoint(m) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &-text {
+    --i-size: 36px;
+    margin-bottom: 1rem;
+  }
+
+  &-alert {
+    color: var(--alert-warning-color);
+  }
+}

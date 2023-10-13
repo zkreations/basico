@@ -1,0 +1,62 @@
+{{!-- 
+Module for generating posts view (isPost, isPage)
+@requires widget:Blog
+--}}
+<b:includable id='post:view'>
+  <b:with value='{
+      codeHighlight: data:skin.vars.p_codeHighlight,
+      codeButton: data:skin.vars.p_codeButton,
+      tocOn: data:skin.vars.p_tocOn,
+      tocHeadings: data:skin.vars.p_tocHeadings,
+      shareOn: data:skin.vars.p_shareOn,
+      adsOnPosts: data:skin.vars.p_adsOnPosts,
+      adsOnPage: data:skin.vars.p_adsOnPage,
+      related: data:skin.vars.p_related,
+      pagination: data:skin.vars.p_postPagination
+    }' var='var'>
+    <article class="post">
+      {{!-- Highlight --}}
+      <b:class cond='data:var.codeHighlight' name='has-highlight'/>
+      <b:class cond='data:var.codeButton' name='has-copy-code'/>
+      {{!-- Auto TOC --}}
+      <b:attr cond='data:var.tocOn' name='data-auto-toc' expr:value='data:var.tocOn'/>
+      <b:attr cond='data:var.tocHeading' name='data-toc-headings' expr:value='data:var.tocHeadings'/>
+      {{!--Post header --}}
+      <header class='post-header flex column g-1'>
+        <h1 class='post-title m:fs-3 fs-4 fw-500'>
+          <data:post.title.escaped/>
+        </h1>
+        {{!-- Show only if the post is not a page --}}
+        <b:include cond='data:view.isPost' name='post:meta'/>
+      </header>
+      {{!-- Post body --}}
+      <section class='post-body typography'>
+        {{!-- Post content with Ads --}}
+        <b:include cond='data:var.adsOnPosts' name='post:ads1'/>
+        <b:include cond='data:var.adsOnPage' name='page:ads1'/>
+        <data:post.body/>
+        <b:include cond='data:var.adsOnPosts' name='post:ads2'/>
+        <b:include cond='data:var.adsOnPage' name='page:ads2'/>
+      </section>
+      {{!-- Show share buttons --}}
+      <b:include cond='data:view.isPost and data:show.share' name='@shared' data='{
+          class: "post-share flex wrap g-1.25",
+          list: data:var.shareOn,
+          params: {
+            title: data:post.title.escaped,
+            url: data:post.url.canonical
+          }
+        }'/>
+      {{!-- Show related posts --}}
+      <b:if cond='data:view.isPost'>
+        <b:include cond='data:post.labels.any and data:var.related' name='post:related'/>
+        <b:include cond='data:post.enclosures.any' name='post:attachments'/>
+      </b:if>
+      {{!-- Determine which comment system to use --}}
+      <b:include name='post:handleComments'/>
+      <b:include cond='data:view.isPost and data:var.pagination' name='post:pagination'/>
+      {{!-- Post metadata --}}
+      <b:include name="postMetadataJSON"/>
+    </article>
+  </b:with>
+</b:includable>

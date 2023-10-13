@@ -1,0 +1,72 @@
+{{!-- 
+Variables b:skin
+@author zkreations
+@docs https://bloggercode-blogconnexion.blogspot.com/2014/06/tag-b-skin-b-template-skin.html
+--}}
+<b:if cond="!data:view.isLayoutMode">
+  {{!-- Skin (for Customization Mode) --}}
+  <b:skin><![CDATA[
+  /*!
+    * Name      : {{name}}
+    * Theme URL : {{theme_uri}}
+    * Source    : {{sorce_uri}}
+    * Version   : {{version}}
+    * Author    : {{author}}
+    * License   : {{license}}
+    * Copyright : {{copyright}}
+    *//*!
+
+  Admin
+  =====================
+  {{> setAdmin}}
+
+  General
+  =====================
+  {{> setGeneral}}
+
+  Cards
+  =====================
+  {{> setCards}}
+
+  Posts
+  =====================
+  {{> setPosts}}
+
+  Comments
+  =====================
+  {{> setComments}}
+
+  Functions
+  =====================
+  {{> setFunctions}}
+
+  Translatable strings
+  =====================
+  {{> Translatable}}
+
+  Customization
+  =====================
+  # Mandatory variable to enable dynamic layout
+  {{variable "keycolor" type="color" value="#2196f3"}}
+  
+  {{> Background}}
+  {{> Color}}
+  {{> Widths}}
+  {{> Font}}
+  {{> Hack}}
+
+  All styles
+  =====================*/
+
+  {{asset '/dist/css/root.css'}}
+
+  /*
+  Your custom styles
+  =====================*/
+  ]]></b:skin>
+<b:else/>
+  {{!-- Template skin (for Layout Mode) --}}
+  <b:template-skin><![CDATA[{{asset '/dist/css/admin.min.css'}}]]></b:template-skin>
+</b:if>
+{{!-- Assets --}}
+<b:include name='m:enqueue'/>

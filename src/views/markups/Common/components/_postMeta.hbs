@@ -1,0 +1,61 @@
+{{!-- 
+Create post meta
+@requires widget:Blog
+--}}
+<b:includable id='post:meta'>
+  <div class="post-meta flex wrap i-s">
+    <b:class cond='!data:view.isSingleItem' name='justify-center'/>
+    {{!-- Author --}}
+    <b:if cond='data:show.author'>
+      <div class='post-meta-item has-icon'>
+        <b:include name='@meteor' data='{ icon: "user" }'/>
+        <a class='post-author underline' expr:href='data:post.author.profileUrl != ""  ? data:post.author.profileUrl : data:skin.vars.c_profileUrl' rel='author'>
+          <data:post.author.name/>
+        </a>
+      </div>
+    </b:if>
+    {{!-- Date --}}
+    <b:if cond='data:show.timestamp'>
+      <div class='post-meta-item has-icon'>
+        <b:include name='@meteor' data='{ icon: "calendar" }'/>
+        <time expr:datetime='data:post.date.iso8601'><data:post.date/></time>
+      </div>
+    </b:if>
+    {{!-- Labels --}}
+    <b:if cond='data:post.labels.any and data:show.labels'>
+      <div class='post-meta-item has-icon'>
+        <b:include name='@meteor' data='{ icon: "tag" }'/>
+        <div class="post-labels capitalize">
+          <b:loop index='i' values='data:post.labels' var='label'>
+            <a class='post-label underline' expr:href='data:label.url' expr:title='data:label.name' rel='nofollow'><data:label.name/></a><b:if cond='data:i lt data:post.labels.size - 1'>,</b:if>
+          </b:loop>
+        </div>
+      </div>
+    </b:if>
+    {{!-- Comments --}}
+    <b:if cond='data:show.comments'>
+      <div class='post-meta-item has-icon'>
+        <b:include name='@meteor' data='{ icon: "comment" }'/>
+        <b:if cond='data:skin.vars.r_shortname != ""'>
+          <span class='disqus-comment-count' expr:data-disqus-url='data:post.url.canonical.https' expr:data-shortname='data:skin.vars.r_shortname'>0</span>
+        <b:else/>
+          <b:message name="messages.numberOfComments">
+            <b:param expr:value="data:post.numberOfComments" name="numComments"/>
+          </b:message>
+        </b:if>
+      </div>
+    </b:if>
+    {{!-- Edit --}}
+    <b:if cond="data:skin.vars.a_editShortcut">
+      <span expr:class='"item-control " + (data:post.adminClass ?: "blog-admin")'>
+        <div class='post-meta-item has-icon'>
+          <b:include name="@meteor" data='{ icon: "pencil" }'/>
+          <a class='post-edit underline' target='nofollow noopener noreferrer'>
+            <b:attr name='href' expr:value='+("https://www.blogger.com/blog/post/edit/",data:blog.blogId,"/",data:post.id)'/>
+            <data:messages.edit/>
+          </a>
+        </div>
+      </span>
+    </b:if>
+  </div>
+</b:includable>

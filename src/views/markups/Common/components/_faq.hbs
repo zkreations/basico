@@ -1,0 +1,17 @@
+{{!--
+Frequently asked questions
+@param {string} [class] - additional class
+@param {string} type - message type
+@author zkreations
+--}}
+<b:includable id='m:faq'>
+  <p class='alert'>
+    <b:class cond='data:class' expr:name='data:class'/>
+    <b:switch var='data:text'>
+      <b:case value='feedsRequired'/>
+      This feature requires Blog Feeds to be enabled. <a href='https://www.zkreations.com/p/faq.html#feeds' rel='nofollow'>How to fix</a>
+      <b:case value='publicRequired'/>
+      Not available if the blog is private. <a href='https://www.zkreations.com/p/faq.html#feeds' rel='nofollow'>How to fix</a>
+    </b:switch>
+  </p>
+</b:includable>

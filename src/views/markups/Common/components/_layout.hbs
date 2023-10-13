@@ -1,0 +1,76 @@
+{{!--
+Add class settings to main wrapper
+@author zkreations
+--}}
+<b:includable id='m:layoutClass'>
+  {{!-- Determine position of sidebar --}}
+  <b:class cond='data:skin.vars.f_mainReverse' name='main-reverse'/>
+  <b:class cond='!(data:sidebarOn contains data:pageType)' name='main-full'/>
+
+  {{!-- Determine sticky mode --}}
+  <b:with value='[
+      "true",
+      "post",
+      "page",
+      "single",
+      "last",
+      "last-in-post",
+      "last-in-page",
+      "last-in-single"
+    ] contains data:skin.vars.f_stickySidebar' var='stickyMode'>
+    <b:if cond='data:stickyMode'>
+      <b:switch var='data:skin.vars.f_stickySidebar'>
+        <b:case value='post'/>
+        <b:class cond='data:view.isPost' name='has-sticky-sidebar'/>
+
+        <b:case value='page'/>
+        <b:class cond='data:view.isPage' name='has-sticky-sidebar'/>
+
+        <b:case value='single'/>
+        <b:class cond='data:view.isSingleItem' name='has-sticky-sidebar'/>
+
+        <b:case value='last'/>
+        <b:class name='has-sticky-widget'/>
+
+        <b:case value='last-in-post'/>
+        <b:class cond='data:view.isPost' name='has-sticky-widget'/>
+
+        <b:case value='last-in-page'/>
+        <b:class cond='data:view.isPage' name='has-sticky-widget'/>
+
+        <b:case value='last-in-single'/>
+        <b:class cond='data:view.isSingleItem' name='has-sticky-widget'/>
+
+        <b:default/>
+        <b:class name='has-sticky-sidebar'/>
+      </b:switch>
+    </b:if>
+  </b:with>
+</b:includable>
+{{!--
+Module for toggling between light and dark theme
+@param {string} [class] - Additional class
+@author zkreations
+--}}
+<b:includable id='m:toggleScheme'>
+  <button class='js-scheme' aria-label='Toggle theme' type='button'>
+    <b:class cond='data:class' expr:name='data:class'/>
+    <b:include name='@meteor' data='{ icon: "moon" }'/>
+    <b:include name='@meteor' data='{ icon: "sun" }'/>
+  </button>
+</b:includable>
+{{!--
+Module for enqueueing assets
+@author zkreations
+--}}
+<b:includable id='m:skeleton'>
+  <div class="skeleton column flex g-1">
+    <b:switch var='data:type'>
+      <b:case value='related'/>
+      <div class='skeleton-item ratio ratio-4:3'/>
+      <div class='skeleton-item'>
+        <data:messages.youMayLikeThesePosts/>
+      </div>
+    </b:switch>
+  </div>
+</b:includable>

@@ -1,0 +1,143 @@
+
+.navbar {
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  transition: border-color var(--duration);
+
+  @include breakpoint(l, max) {
+    padding: 1rem;
+  }
+
+  &-toggle {
+    @include breakpoint(l) {
+      display: none;
+    }
+
+    &.is-active {
+      svg {
+        transform: rotate(-45deg) translateZ(0);
+      }
+
+      path {
+        &:nth-child(1) {
+          transform: translateX(20px) rotate(90deg);
+        }
+
+        &:nth-child(2) {
+          transform: translateY(-4px);
+        }
+      }
+    }
+
+    &-svg, &-svg path {
+      transition: transform var(--duration);
+    }
+  }
+}
+
+.nav {
+  $this: &;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: var(--nav-direction, column);
+
+  @include breakpoint(l) {
+    justify-content: center;
+  }
+
+  &-item {
+    &:hover > #{$this}-link {
+      color: var(--primary);
+    }
+
+    position: relative;
+
+    @include breakpoint(l) {
+      &:not(:hover) > #{$this}-subnav {
+        pointer-events: none;
+        transform: translateY(-1rem);
+        opacity: 0;
+      }
+    }
+
+    &-toggle {
+      padding: var(--nav-link-padding, 1rem);
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      @include breakpoint(l) {
+        display: none;
+      }
+    }
+
+    @include breakpoint(l, max) {
+      &:not(.is-open) > #{$this}-subnav {
+        display: none;
+      }
+    }
+  }
+
+  &-link {
+    display: inline-flex;
+    align-items: center;
+    column-gap: var(--icon-gap, .5rem);
+    padding: var(--nav-link-padding, 1rem);
+    width: 100%;
+    color: var(--color-text);
+
+    @include breakpoint(l) {
+      &.has-toggle::after {
+        content: "+";
+      }
+    }
+  }
+
+  &-show {
+    @include breakpoint(l) {
+      --nav-toggle: none;
+      --nav-direction: row;
+      --nav-subnav: absolute;
+    }
+
+    @include breakpoint(l, max) {
+      --frame-translate-y: 1rem;
+      --nav-link-padding: .5rem 1rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      background-color: var(--bg-subtle);
+      animation: frames var(--duration) both;
+      box-shadow: var(--shadow-high);
+      inset: 100% 0 auto;
+      position: absolute;
+      z-index: 100;
+
+      &:not(.is-active) {
+        display: none;
+      }
+    }
+  }
+
+  &-subnav {
+    white-space: nowrap;
+    background-color: var(--bg-subtle);
+    box-shadow: var(--shadow-high);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    --nav-link-padding: .25rem 1rem;
+
+    @include breakpoint(l) {
+      transition: transform var(--duration), opacity var(--duration);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 10;
+    }
+
+    @include breakpoint(l, max) {
+      --frame-translate-y: 1rem;
+      animation: frames var(--duration) both;
+      transform-origin: top left;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+html {
+  &:not([data-theme=dark]) .js-scheme .i-moon,
+  &[data-theme=dark] .js-scheme .i-sun {
+    display: none;
+  }
+}
+
+body {
+  background: var(--bg-image-body);
+  background-size: cover;
+  background-color: var(--bg-body);
+  color: var(--color-text);
+  font-family: var(--font-text);
+  transition: background-color var(--duration);
+  --block-space: 1rem;
+
+  @include breakpoint(l) {
+    --block-space: 2rem;
+  }
+
+  &.is-preview {
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    &::after {
+      content: "";
+      display: block;
+      position: fixed;
+      z-index: 999;
+      inset: 0;
+    }
+  }
+
+  &.preload {
+    * {
+      transition: none !important;
+    }
+  }
+}
+
+::selection {
+  background-color: var(--color-selection);
+}
+
+::-webkit-resizer {
+  display: none;
+}
+
+a {
+  color: var(--primary);
+  transition: color var(--duration);
+}
+
+b, strong {
+  color: var(--color-title);
+  font-weight: 500;
+}
+
+hr {
+  color: inherit;
+  overflow: visible;
+  display: block;
+  clear: both;
+  border-width: 0;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+
+  &:not([class]) {
+    height: 0;
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+// Display none for the admin controls
+:where(.item-control, .blog-admin) {
+  display: none
+}
+
+// No show for the empty sections
+:where(.section.no-items) {
+  display: none;
+}
+
+// No show adsense ads if they are not filled
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}

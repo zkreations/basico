@@ -1,0 +1,45 @@
+{{!-- 
+Create post attachments
+@requires widget:Blog
+--}}
+<b:includable id='post:attachments'>
+  <b:with value='{
+      files: (data:post.enclosures where (p => p.url not contains "?ref=")),
+      sources: (data:post.enclosures where (p => p.url contains "?ref="))
+    }' var='attachments'>
+    <b:if cond='data:attachments.files.any'>
+      <b:include name='post:attachmentsItems' data='{ items: data:attachments.files }'/>
+    </b:if>
+    <b:if cond='data:attachments.sources.any'>
+      <b:include name='post:attachmentsItems' data='{
+          title: data:skin.vars.t_sources,
+          icon: "chain",
+          items: data:attachments.sources
+        }'/>
+    </b:if>
+  </b:with>
+</b:includable>
+{{!--
+Generador de adjuntos
+@author zkreations
+@param {string} title - Título del módulo
+@param {string} [icon="paperclip"] - Icono del módulo
+@param {Array} items - Lista de elementos
+--}}
+<b:includable id='post:attachmentsItems'>
+  <div class='article-attachments flex column g-1'>
+    <div class='post-section-title attachments-title fw-500'>
+      <b:eval expr='data:title ?: data:skin.vars.t_attachments'/>
+    </div>
+    <div class='article-links'>
+      <b:loop values='data:items' var='item'>
+        <div class="flex items-center g-0.75">
+          <b:include name='@meteor' data='{ icon: (data:icon ?: "paperclip") }'/>
+          <a expr:href='data:item.url' rel='noreferrer noopener nofollow' target='_blank'>
+            <data:item.mimeType/>
+          </a>
+        </div>
+      </b:loop>
+    </div>
+  </div>
+</b:includable>

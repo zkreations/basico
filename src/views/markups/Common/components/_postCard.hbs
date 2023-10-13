@@ -1,0 +1,79 @@
+{{!-- 
+Module for creating a post card
+@requires widget:Blog or widget:FeaturedPost or widget:PopularPost
+@data {array} [data:items=data:posts] - Array of posts
+--}}
+<b:includable id='post:card'>
+  <b:with value='{
+      showSnippet: data:skin.vars.e_showSnippet,
+      showMeta: data:skin.vars.e_showMeta,
+      snippetLength: data:skin.vars.e_snippetLength,
+      titleTag: (["h2","h3","h4","h5","h6"] contains data:skin.vars.e_titleTag
+        ? data:skin.vars.e_titleTag
+        : "h3"),
+      ratio: (["21:9","16:9","4:3","1:1","1:2","2:3","5:7"] contains data:skin.vars.e_ratio
+        ? data:skin.vars.e_ratio
+        : "16:9")
+    }' var='var'>
+    {{!-- Loop --}}
+    <b:loop index='i' values='data:items ?: data:posts' var='post'>
+      <article class='card'>
+        {{!-- If show image is enabled --}}
+        <b:if cond='data:skin.vars.e_showImage'>
+          <b:with value='data:post.featuredImage ?: data:skin.vars.c_image' var='postImage'>
+            <b:if cond='data:postImage and data:postImage != ""'>
+              <b:class name='has-image'/>
+              <a class='card-image' expr:href='data:post.link ?: data:post.url.canonical'>
+                {{!-- Add the aspect ratio class --}}
+                <b:class expr:name='"ratio ratio-" + data:var.ratio'/>
+                {{!-- Determine if the image should be lazy loaded --}}
+                <b:with value='(data:i + 1) gte data:skin.vars.e_lazyStart ? "lazy" : ""' var='lazy'>
+                  {{!-- @function Image Markup --}}
+                  <b:include name='@picture' data='{
+                      src: data:postImage,
+                      class: "card-image-src image-fit",
+                      resizeSet: [700,400,300],
+                      ratio: data:var.ratio,
+                      params: data:skin.vars.c_imageParams,
+                      loading: data:lazy
+                    }'/>
+                </b:with>
+              </a>
+            <b:else/>
+              <div class="card-text flex justify-center">
+                <b:include name='@meteor' data='{ icon: "quote-right" }'/>
+              </div>
+            </b:if>
+          </b:with>
+        </b:if>
+        <div class="card-body flex column g-1 text-center">
+          {{!-- If title is empty, display "No title" --}}
+          <b:tag  expr:name='data:var.titleTag' class='card-title m:fs-3 fs-4 fw-500'>
+            <a class='card-title-link' expr:href='data:post.link ?: data:post.url.canonical'>
+              <b:eval expr='data:post.title.escaped != "" ? data:post.title.escaped : data:messages.noTitle'/>
+            </a>
+          </b:tag>
+          {{!-- Include post meta --}}
+          <b:include cond='data:var.showMeta' name='post:meta'/>
+          {{!-- Show jump link alert --}}
+          <b:if cond='data:skin.vars.a_jumpLinkAlert and !data:post.hasJumpLink'>
+            <span expr:class='"item-control " + (data:post.adminClass ?: "blog-admin")'>
+              <div class='card-alert flex g-0.5 items-center justify-center'>
+                <b:include name='@meteor' data='{ icon: "circle-exclamation" }'/>
+                <data:skin.vars.t_missingJumpLink/>
+              </div>
+            </span>
+          </b:if>
+          {{!-- @function Create a snippet --}}
+          <b:include cond='data:var.showSnippet' name='@snippet' data='{
+              class: "card-snippet truncate-line",
+              string: data:post.snippets.long,
+              length: data:var.snippetLength
+            }'/>
+        </div>
+      </article>
+      {{!-- Show inline ad --}}
+      <b:include name='post:inlineAd'/>
+    </b:loop>
+  </b:with>
+</b:includable>

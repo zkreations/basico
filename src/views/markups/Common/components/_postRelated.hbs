@@ -1,0 +1,36 @@
+{{!-- 
+Creates a related post section for a post.
+@requires widget:Blog (post)
+--}}
+<b:includable id='post:related'>
+  <b:if cond='data:blog.feedLinks.length lt 10'>
+    <b:include name='m:faq' data='{ text: "feedsRequired" }'/>
+  <b:elseif cond='data:blog.isPrivateBlog'/>
+    <b:include name='m:faq' data='{ text: "publicRequired" }'/>
+  <b:else/>
+    <div class='article-related flex column g-1'>
+      <b:with value='{
+          results: data:skin.vars.p_relatedCount,
+          shuffle: data:skin.vars.p_relatedShuffle,
+          image: data:skin.vars.c_image
+        }' var='var'>
+        <div class="post-section-title related-title fw-500">
+          <data:skin.vars.t_relatedPosts/>
+        </div>
+        <div id="related-posts" class='related auto-fill g-1 grid'>
+          <b:attr name='data-shuffle-level' expr:value='(data:var.shuffle + 0 == data:var.shuffle) ? data:var.shuffle : 0 '/>
+          <b:attr name='data-tags' expr:value='(data:post.labels map (l => l.name)) limit 3'/>
+          <b:attr name='data-id' expr:value='data:post.id'/>
+          <b:attr name='data-image' expr:value='data:var.image'/>
+          {{!-- Skeleton--}}
+          <b:with value='[1,2,3,4,5,6,7,8,9,10,11,12] contains data:var.results ? data:var.results : 3' var='results'>
+            <b:attr name='data-max-results' expr:value='data:results'/>
+            <b:loop values='1 to data:results' var='n'>
+              <b:include name='m:skeleton' data='{ type: "related" }'/>
+            </b:loop>
+          </b:with>
+        </div>
+      </b:with>
+    </div>
+  </b:if>
+</b:includable>

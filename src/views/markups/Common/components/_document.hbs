@@ -1,0 +1,12 @@
+{{!--
+Module for root element
+@author zkreations
+--}}
+<b:includable id='m:root'>
+  {{!-- Determine the current UI scheme --}}
+  <b:if cond='["dark","light"] contains data:skin.vars.c_uiScheme'>
+    <b:attr name='data-theme' expr:value='data:skin.vars.c_uiScheme'/>
+  </b:if>
+  {{!-- Remove all root attributes --}}
+  <b:include name='@attr' data='{["xmlns"],["xmlns:b"],["xmlns:data"],["xmlns:expr"]}'/>
+</b:includable>

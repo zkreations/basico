@@ -1,0 +1,53 @@
+{{!-- 
+Content of the widget PopularPosts
+@author zkreations
+@docs https://bloggercode-blogconnexion.blogspot.com/2019/04/widget-popularPosts.html
+--}}
+<b:includable id='widget:PopularPosts'>
+  <div class="populars grid auto-fit g-1.5">
+    <b:loop values='data:posts' var='post'>
+      <div class='populars-item flex items-start g-1'>
+        {{!-- Show Image --}}
+        <b:if cond='data:this.postDisplay.showFeaturedImage'>
+          <a class='populars-image flex-none ratio ratio-1:1' expr:href='data:post.url.canonical' expr:title='data:post.title'>
+            <b:with value='data:post.featuredImage ?: data:skin.vars.c_image' var='postImage'>
+              <b:if cond='data:postImage and data:postImage != ""'>
+                <b:include name='@image' data='{
+                    src: data:postImage,
+                    class: "populars-image-src image-fit",
+                    resize: 50,
+                    ratio: "1:1",
+                    params: data:skin.vars.c_imageParams
+                  }'/>
+              <b:else/>
+                <b:class name='flex items-center justify-center color-text i-m'/>
+                <b:include name='@meteor' data='{ icon: "quote-right" }'/>
+              </b:if>
+            </b:with>
+          </a>
+        </b:if>
+        <div class='populars-meta flex column g-0.5'>
+          {{!-- Show Title --}}
+          <b:if cond='data:this.postDisplay.showTitle'>
+            <h3 class='populars-title fw-500'>
+              <a class='populars-title-link' expr:href='data:post.url.canonical'>
+                <data:post.title/>
+              </a>
+            </h3>
+          </b:if>
+          {{!-- Show Snippet --}}
+          <b:include cond='data:this.postDisplay.showSnippet' name='@snippet' data='{
+              class: "populars-snippet",
+              string: data:post.snippets.long,
+              length: 80
+            }'/>
+          {{!-- Show Timestamp --}}
+          <div class='populars-time has-icon'>
+            <b:include name='@meteor' data='{ icon: "calendar" }'/>
+            <time expr:datetime='data:post.date.iso8601'><data:post.date/></time>
+          </div>
+        </div>
+      </div>
+    </b:loop>
+  </div>
+</b:includable>

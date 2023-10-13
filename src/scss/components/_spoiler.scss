@@ -1,0 +1,26 @@
+.spoiler {
+  padding: var(--form-padding);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+
+  summary {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &::after {
+      font-weight: 300;
+      content: var(--show-more-text);
+    }
+  }
+
+  &[open] {
+    > summary {
+      margin-bottom: var(--typography-spacing);
+
+      &::after {
+        content: var(--show-less-text);
+      }
+    }
+  }
+}

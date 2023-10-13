@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:js='true' {{attr root}}>
+<b:include name='m:root'/>
+<head>
+  {{!-- Title --}}
+  <title>
+    <data:view.title.escaped/>
+  </title>
+  {{!-- All meta tags --}}
+  <b:include name='m:head'/>
+  {{!-- Default skin --}}
+  {{> skin}}
+  {{!-- Default markups --}}
+  {{> markups}}
+  {{!-- Generate responsive image styles --}}
+  <b:if cond='not data:view.isPreview'>
+    <b:include data='{ selector: ".header", image: data:skin.vars.body_background.image }' name='responsiveImageStyle'/>
+  </b:if>
+</head>
+
+<body class='preload s:fs-6 fs-7'>
+<b:include name='@kind'/>
+<b:tag name='div' class='layout-edit' cond='data:view.isLayoutMode and data:skin.vars.a_layoutEdit'>
+  <b:with value='data:view.isHomepage ? "home" : (data:view.search.query ? "search" : ( data:view.isLabelSearch ? "labels" : data:blog.pageType))' var='pageType'>
+    <div class='template'>
+      <div class='template-content container flex column'>
+        <header class='header layout-section'>
+          {{> partial-header}}
+        </header>
+        <b:with value='data:skin.vars.f_sidebarOn + "."' var="sidebarOn">
+          <main class='main flex-1'>
+            {{!-- Determine design configuration classes --}}
+            <b:include name='m:layoutClass'/>
+            <b:tag cond='data:view.isLayoutMode' name='div' class='layout-section'>
+              {{> partial-content}}
+              {{!-- Determine if sidebar is enabled on this page type --}}
+              <b:if cond="(data:sidebarOn contains data:pageType) or data:view.isLayoutMode">
+                {{> partial-sidebar}}
+              </b:if>
+            </b:tag>
+          </main>
+        </b:with>
+        <footer class='footer layout-section'>
+          {{> partial-footer}}
+        </footer>
+      </div>
+    </div>
+  </b:with>
+</b:tag>
+<b:include name='m:foot'/>
+{{!-- Hack to remove the default Blogger Js --}}
+&lt;textarea hidden id='bjs'></body>&lt;/textarea>&lt;/body>
+</html>

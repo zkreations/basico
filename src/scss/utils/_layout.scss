@@ -1,0 +1,103 @@
+// Positioning
+@include utility(position, absolute relative fixed sticky);
+
+.z {
+  @include utility(z-index, 10 20 30 40 50 60 70 80 90 100);
+}
+
+// Spacing
+.g {
+  @include utility(gap, $spacing-values);
+}
+
+// Display
+@include utility(display, (
+  block: block,
+  inline-block: inline-block,
+  inline: inline,
+  flex: flex,
+  inline-flex: inline-flex,
+  grid: grid,
+  inline-grid: inline-grid,
+  none: none,
+));
+
+// Flex Layout
+.items {
+  @include utility(align-items, (
+    start: flex-start,
+    end: flex-end,
+    center: center,
+  ));
+}
+
+.justify {
+  @include utility(justify-content, (
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    between: space-between,
+    around: space-around,
+    evenly: space-evenly,
+  ));
+}
+
+@include utility(flex-direction, (
+  row: row,
+  column: column,
+), true);
+
+@include utility(flex-wrap, (
+  wrap: wrap,
+  wrap-reverse: wrap-reverse,
+  nowrap: nowrap,
+));
+
+@include utility(flex, (
+  flex-1: 1 1 0,
+  flex-auto: auto,
+  flex-initial: initial,
+  flex-none: none,
+));
+
+.content {
+  @include utility(align-content, (
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    between: space-between,
+    around: space-around,
+    evenly: space-evenly,
+  ));
+}
+
+// Grid Layout
+@include utility(grid-template-columns, (
+  auto-fill: repeat(auto-fill, minmax(min(100%,var(--cols-min, 16rem)), 1fr)),
+  auto-fit: repeat(auto-fit, minmax(min(100%,var(--cols-min, 16rem)), 1fr)),
+));
+
+
+// Overflow
+@include utility(overflow, (
+  o-auto: auto,
+  o-hidden: hidden,
+));
+
+@include utility(overflow-x, (
+  ox-auto: auto,
+  ox-hidden: hidden,
+));
+
+@include utility(overflow-y, (
+  oy-auto: auto,
+  oy-hidden: hidden,
+));
+
+// pointer-events
+.events {
+  @include utility(pointer-events, (
+    none: none,
+    auto: auto,
+  ));
+}

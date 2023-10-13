@@ -1,0 +1,79 @@
+.code {
+  &-copy  {
+    position: absolute;
+    inset: 0.5rem 0.5rem auto auto;
+    padding: 0.5rem 0.75rem;
+    background-color: rgb(0 0 0 / 50%);
+    color: #fff;
+    border-radius: 0.5rem;
+    transition: .3s background-color;
+    line-height: 1.5;
+    font-size: .875rem;
+
+    &:hover {
+      background-color: rgb(0 0 0 / 75%);
+    }
+
+    &::before {
+      content: var(--copy-text);
+    }
+
+    &.is-copied::before {
+      content: var(--copied-text);
+    }
+  }
+}
+
+.hljs {
+  &-comment,
+  &-meta {
+    color: var(--code-color-comment);
+  }
+
+  &-emphasis,
+  &-quote,
+  &-string,
+  &-strong,
+  &-template-variable,
+  &-variable {
+    color: var(--code-color-string);
+  }
+
+  &-keyword,
+  &-selector-tag,
+  &-type {
+    color: var(--code-color-selector);
+  }
+
+  &-attribute,
+  &-bullet,
+  &-literal,
+  &-symbol {
+    color: var(--code-color-property);
+  }
+
+  &-tag {
+    color: var(--code-color-tag);
+  }
+
+  &-name,
+  &-section {
+    color: var(--code-color-tag-name);
+  }
+
+  &-selector-class {
+    color: var(--code-color-class);
+  }
+   
+  &-number {
+    color: var(--code-color-number);
+  }
+
+  &-attr,
+  &-selector-attr,
+  &-selector-id,
+  &-selector-pseudo,
+  &-title {
+    color: var(--code-color-attr);
+  }
+}

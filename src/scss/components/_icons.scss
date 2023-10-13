@@ -1,0 +1,36 @@
+// Meteor Icons
+// @url: https://meteoricons.com
+
+.i {
+  stroke-width: var(--i-stroke, 2);
+  width: var(--i-size, 20px);
+  height: var(--i-size, 20px);
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+
+  &-s {
+    --i-size: 18px
+  }
+
+  &-m {
+    --i-size: 24px
+  }
+
+  &-l {
+    --i-size: 30px
+  }
+
+  &-xl {
+    --i-size: 45px
+  }
+
+  &-xxl {
+    --i-size: 60px
+  }
+
+  &-xxxl {
+    --i-size: 75px
+  }
+}

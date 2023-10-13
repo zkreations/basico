@@ -1,0 +1,52 @@
+.form {
+  &-label {
+    display: block;
+    margin-bottom: var(--form-gap);
+  }
+
+  &-section {
+    &:not(:first-child) {
+      margin-top: 1.5rem;
+    }
+  }
+
+  &-control {
+    background-color: var(--form-bg);
+    padding: var(--form-padding);
+    border: 1px solid var(--color-border);
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+  }
+
+  &-check {
+    display: flex;
+    align-items: center;
+
+    input {
+      height: 18px;
+      width: 18px;
+      margin-right: 0.75rem;
+      border: 1px solid var(--color-border);
+      transition: border-color var(--duration);
+      appearance: none;
+      cursor: pointer;
+
+      &:checked {
+        border-color: var(--primary);
+        box-shadow: inset 0 0 0 4px #fff, inset 0 0 0 10px var(--primary);
+      }
+
+      &[type=radio] {
+        border-radius: 50rem;
+      }
+
+      &[type=checkbox] {
+        border-radius: 0.25rem;
+      }
+    }
+  }
+}

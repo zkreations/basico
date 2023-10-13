@@ -1,0 +1,55 @@
+{{!-- 
+Content of the widget FeaturedPost
+@author zkreations
+@docs https://bloggercode-blogconnexion.blogspot.com/2019/05/widget-featuredPost.html
+@data {string} data:show.share - Share buttons
+@data {string} data:show.author - Author profile
+@data {string} data:show.timestamp - Publish date
+@data {string} data:show.comments - Comments
+@data {string} data:show.labels - Labels
+@data {string} data:show.icons - Email send button
+--}}
+<b:includable id='widget:FeaturedPost'>
+  <b:if cond='data:widget.sectionId != "sidebar"'>
+    <b:with value='data:widgets.Blog1.allBylineItems' var='show'>
+      <b:include name='post:card'/>
+    </b:with>
+  <b:else/>
+    <b:with value='data:this.posts.first' var='post'>
+      <article class='featuredPost column flex g-0.75'>
+        {{!-- Show Image --}}
+        <b:if cond='data:this.postDisplay.showFeaturedImage'>
+          <a class='featuredPost-image ratio ratio-16:9' expr:href='data:post.url.canonical'>
+            <b:with value='data:post.featuredImage ?: data:skin.vars.c_image' var='postImage'>
+              <b:if cond='data:postImage and data:postImage != ""'>
+                <b:include name='@image' data='{
+                    src: data:postImage,
+                    class: "featuredPost-image-src image-fit",
+                    resize: 400,
+                    ratio: "16:9",
+                    params: data:skin.vars.c_imageParams
+                }'/>
+              <b:else/>
+                <b:class name='flex items-center justify-center color-text i-m'/>
+                <b:include name='@meteor' data='{ icon: "quote-right" }'/>
+              </b:if>
+            </b:with>
+          </a>
+        </b:if>
+        {{!-- Show Title --}}
+        <b:if cond='data:this.postDisplay.showTitle'>
+          <h3 class='featuredPost-title m:fs-5 fw-500'>
+            <a class='featuredPost-title-link' expr:href='data:post.url.canonical'>
+              <data:post.title/>
+            </a>
+          </h3>
+        </b:if>
+        <b:include cond='data:this.postDisplay.showSnippet' name='@snippet' data='{
+            class: "featuredPost-snippet",
+            string: data:post.snippets.long,
+            length: 100
+          }'/>
+      </article>
+    </b:with>
+  </b:if>
+</b:includable>

@@ -1,0 +1,47 @@
+
+// Breakpoints
+$breakpoints: (
+  s: 576px,
+  m: 768px,
+  l: 992px,
+  xl: 1200px,
+) !default;
+
+// Escaped selectors
+$escaped-class: (
+  (".", "\\."),
+  (":", "\\:"),
+  ("/", "\\/"),
+) !default;
+
+// Aspect ratios
+$aspect-ratio: (
+  "21:9",
+  "16:9",
+  "4:3",
+  "1:1",
+  "1:2",
+  "2:3",
+  "5:7",
+) !default;
+
+// Texts sizes
+$font-size-values: (
+  1: 2.5rem,
+  2: 1.75rem,
+  3: 1.5rem,
+  4: 1.25rem,
+  5: 1.125rem,
+  6: 1rem,
+  7: .875rem,
+  8: .75rem
+) !default;
+
+// Texts weights
+$font-weight-values: 100 200 300 400 500 600 700 800 900 !default;
+
+// Spacings
+$spacing-values: .25rem .5rem .75rem .875rem 1rem 1.25rem 1.5rem 1.75rem 2rem;
+
+// WordPress Support
+$enable-wp-support: true !default;

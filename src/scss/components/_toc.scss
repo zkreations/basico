@@ -1,0 +1,76 @@
+
+.toc {
+  padding: var(--form-padding);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+
+  &:not(.toc-loaded) {
+    display: flex;
+    justify-content: space-between;
+
+    &::after {
+      font-weight: 300;
+      content: var(--show-more-text);
+    }
+
+    &::before {
+      content: var(--toc-text);
+    }
+  }
+
+  input:not(:checked) {
+    + *::after {
+      content: var(--show-more-text);
+    }
+
+    + * + * {
+      display: none;
+    }
+  }
+
+  &-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: coffee;
+  }
+
+  &-list &-list {
+    padding-inline-start:1.25rem;
+  }
+
+  &-item {
+    counter-increment: coffee;
+
+    &::before {
+      content: counters(coffee, ".") ".";
+      padding-inline-end: 0.75rem;
+    }
+  }
+
+  &-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &::after {
+      content: var(--show-less-text);
+    }
+
+    &::before {
+      content: var(--toc-text);
+    }
+  }
+
+  &-link {
+    &:not(:hover) {
+      color: var(--color-text);
+    }
+  }
+
+  &-content {
+    flex-direction: column;
+    display: flex;
+    padding-top: 1rem;
+  }
+}

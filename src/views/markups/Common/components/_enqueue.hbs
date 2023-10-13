@@ -1,0 +1,16 @@
+{{!--
+Module for enqueueing assets
+@author zkreations
+--}}
+<b:includable id='m:enqueue'>
+  {{!-- Main CSS --}}
+  <style>/*<![CDATA[*/{{asset '/dist/css/main'}}/*]]>*/</style>
+  {{!-- Post and Page CSS --}}
+  <b:if cond='data:view.isSingleItem'>
+    <style>/*<![CDATA[*/{{asset '/dist/css/typography'}}/*]]>*/</style>
+  </b:if>
+  {{!-- Main Js --}}
+  {{#unless devMode}}
+  <script defer src='https://cdn.jsdelivr.net/gh/zkreations/basico@2/dist/js/main.min.js'></script>
+  {{/unless}}
+</b:includable>

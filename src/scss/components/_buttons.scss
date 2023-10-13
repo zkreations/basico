@@ -1,0 +1,70 @@
+
+@mixin buttonCommonStyles {
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  padding: var(--btn-padding, var(--form-padding));
+  font-size: var(--btn-fs, 1rem);
+  line-height: 1.5;
+  cursor: pointer;
+
+  transition-property: box-shadow, background-color, color;
+  transition-duration: var(--duration);
+
+  &:hover {
+    background-color: var(--btn-bg-hover);
+  }
+}
+
+.btn  {
+  @include buttonCommonStyles;
+
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: var(--icon-gap, .5rem);
+
+  &:hover {
+    --btn-outline-color: var(--primary);
+    --btn-shadow-color: var(--primary);
+  }
+
+  // Modos
+  &-primary {
+    --btn-bg: var(--primary);
+    --btn-bg-hover: var(--secondary);
+    --btn-color: var(--white);
+
+    --btn-outline-color: var(--primary);
+    --btn-shadow-color: var(--primary);
+
+    &:hover {
+      --btn-outline-color: var(--secondary);
+      --btn-shadow-color: var(--secondary);
+    }
+  }
+
+  &-outline {
+    --btn-bg: transparent;
+    --btn-bg-hover: transparent;
+    backface-visibility: hidden;
+    color: var(--btn-outline-color);
+    box-shadow: 0 0 0 1px var(--btn-shadow-color, var(--color-border)) inset;
+  }
+
+  &-full {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+// WpSupport: Gutenberg Buttons
+@if ($enable-wp-support) {
+  .wp-block-button {
+    @include buttonCommonStyles;
+    display: inline-block;
+
+    &__link {
+      color: inherit;
+    }
+  }
+}

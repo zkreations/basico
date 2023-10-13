@@ -1,0 +1,13 @@
+.related {
+  --cols-min: var(--related-min-width);
+
+  &-image {
+    background-color: var(--bg-inset);
+  }
+
+  &-item {
+    &:not(:hover) {
+      color: var(--color-title);
+    }
+  }
+}

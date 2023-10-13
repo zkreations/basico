@@ -1,0 +1,26 @@
+{{!-- 
+Content of the widget HTML
+@author zkreations
+@docs https://bloggercode-blogconnexion.blogspot.com/2019/04/widget-html.html
+--}}
+<b:includable id='widget:HTML'>
+  <data:content/>
+</b:includable>
+{{!-- 
+Copyright of the site
+@author zkreations
+--}}
+<b:includable id='widget:HTML_Copyright'>
+  <b:include name='@attr' data='{
+    ["id"],
+    ["data-version"],
+    ["class","footer-copyright flex m:row column g-1 items-center justify-center text-center"]}'/>
+  {{!-- Copyright --}}
+  <small class="fs-6">
+    <data:content/>
+  </small>
+  {{!-- Scheme toggle --}}
+  <b:if cond='!data:view.isPreview and data:skin.vars.c_uiToggle'>
+    <b:include name='m:toggleScheme'/>
+  </b:if>
+</b:includable>

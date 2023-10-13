@@ -1,0 +1,11 @@
+@keyframes frames {
+  from {
+    transform: scale(var(--frame-scale, 1)) translate(var(--frame-translate-x, 0), var(--frame-translate-y, 0));
+    opacity: var(--frame-opacity, 0)
+  }
+
+  to {
+    transform: scale(1) translate(0);
+    opacity: 1
+  }
+}

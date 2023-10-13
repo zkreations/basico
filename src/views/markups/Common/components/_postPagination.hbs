@@ -1,0 +1,24 @@
+{{!-- 
+Module for creating a post card
+@requires widget:Blog
+--}}
+<b:includable id='post:pagination'>
+  {{!-- Show pagination only if there are more than one page --}}
+  <b:tag class='blog-pager flex g-1 justify-center' id='blog-pager' cond='data:newerPageUrl or data:olderPageUrl' name='div'>
+    <b:class cond='data:view.isSingleItem' name='blog-pager-post'/>
+    {{!-- Newer posts button --}}
+    <b:if cond='data:newerPageUrl'>
+      <a class='pager-button pager-button-newer btn btn-outline btn-full' expr:href='data:newerPageUrl' rel='nofollow'>
+        <b:include name='@meteor' data='{ icon: "arrow-left-long" }'/>
+        <data:messages.newerPosts/>
+      </a>
+    </b:if>
+    {{!-- Older posts button --}}
+    <b:if cond='data:olderPageUrl'>
+      <a class='pager-button pager-button-older btn btn-outline btn-full' expr:href='data:olderPageUrl' rel='nofollow'>
+        <data:messages.olderPosts/>
+        <b:include name='@meteor' data='{ icon: "arrow-right-long" }'/>
+      </a>
+    </b:if>
+  </b:tag>
+</b:includable>

@@ -1,0 +1,32 @@
+{{!--
+Content of the widget PageList
+@author zkreations
+@docs https://bloggercode-blogconnexion.blogspot.com/2019/04/widget-pageList.html
+--}}
+<b:includable id='widget:PageList'>
+  <b:if cond='data:widget.sectionId == "header"'>
+    <b:attr name='class' value='navbar relative flex justify-center'/>
+    <button class='navbar-toggle' aria-label='toggle' expr:data-outside='data:widget.instanceId'>
+      <svg class="i navbar-toggle-svg" viewBox="0 0 24 24">
+        <path d="M2 8H22"></path>
+        <path d="M2 16H22"></path>
+      </svg>
+    </button>
+    <div class='nav-show' expr:id='data:widget.instanceId'>
+      <b:include name='@menu' data='{ links: data:links }'/>
+    </div>
+  <b:else/>
+    <div class='pages'>
+      <b:loop values='data:links' var='link'>
+        <a class='pages-link' expr:href='data:link.href'>
+          <b:class cond='data:link.isCurrentPage' name='is-here'/>
+          <b:if cond='data:link.href contains "?ref="'>
+            <b:attr name='target' value='_blank'/>
+            <b:attr name='rel' value='noopener noreferrer nofollow'/>
+          </b:if>
+          <data:link.title/>
+        </a>
+      </b:loop>
+    </div>
+  </b:if>
+</b:includable>
