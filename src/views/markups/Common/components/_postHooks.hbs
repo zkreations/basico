@@ -1,0 +1,42 @@
+{{!--
+Hook for post & page header
+@author zkreations
+--}}
+<b:includable id='post:header'>
+  {{!--Post header --}}
+  <header class='post-header flex column g-1'>
+    <h1 class='post-title m:fs-3 fs-4 fw-500'>
+      <data:post.title.escaped/>
+    </h1>
+    {{!-- Show only if the post is not a page --}}
+    <b:include cond='data:view.isPost' name='post:meta'/>
+  </header>
+</b:includable>
+{{!--
+Hook for post share buttons
+@author zkreations
+--}}
+<b:includable id='post:shareButtons'>
+  <b:include name='@shared' data='{
+      class: "post-share flex wrap g-1.25",
+      list: data:var.shareOn,
+      params: {
+        title: data:post.title.escaped,
+        url: data:post.url.canonical
+      }
+    }'/>
+</b:includable>
+{{!--
+Hook for after post footer
+@author zkreations
+--}}
+<b:includable id='post:afterFooter'>
+  <!-- After post footer-->
+</b:includable>
+{{!--
+Hook for before post footer
+@author zkreations
+--}}
+<b:includable id='post:beforeFooter'>
+  <!-- Before post footer-->
+</b:includable>

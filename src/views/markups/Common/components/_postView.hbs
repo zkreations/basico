@@ -22,13 +22,7 @@ Module for generating posts view (isPost, isPage)
       <b:attr cond='data:var.tocOn' name='data-auto-toc' expr:value='data:var.tocOn'/>
       <b:attr cond='data:var.tocHeading' name='data-toc-headings' expr:value='data:var.tocHeadings'/>
       {{!--Post header --}}
-      <header class='post-header flex column g-1'>
-        <h1 class='post-title m:fs-3 fs-4 fw-500'>
-          <data:post.title.escaped/>
-        </h1>
-        {{!-- Show only if the post is not a page --}}
-        <b:include cond='data:view.isPost' name='post:meta'/>
-      </header>
+      <b:include name='post:header'/>
       {{!-- Post body --}}
       <section class='post-body typography'>
         {{!-- Post content with Ads --}}
@@ -39,14 +33,9 @@ Module for generating posts view (isPost, isPage)
         <b:include cond='data:var.adsOnPage' name='page:ads2'/>
       </section>
       {{!-- Show share buttons --}}
-      <b:include cond='data:view.isPost and data:show.share' name='@shared' data='{
-          class: "post-share flex wrap g-1.25",
-          list: data:var.shareOn,
-          params: {
-            title: data:post.title.escaped,
-            url: data:post.url.canonical
-          }
-        }'/>
+      <b:include cond='data:view.isPost and data:show.share' name='post:shareButtons'/>
+      {{!-- Hook for before post footer --}}
+      <b:include cond='data:view.isPost' name='post:beforeFooter'/>
       {{!-- Show related posts --}}
       <b:if cond='data:view.isPost'>
         <b:include cond='data:post.labels.any and data:var.related' name='post:related'/>
@@ -57,6 +46,8 @@ Module for generating posts view (isPost, isPage)
       <b:include cond='data:view.isPost and data:var.pagination' name='post:pagination'/>
       {{!-- Post metadata --}}
       <b:include name="postMetadataJSON"/>
+      {{!-- Hook for after post footer --}}
+      <b:include cond='data:view.isPost' name='post:afterFooter'/>
     </article>
   </b:with>
 </b:includable>
