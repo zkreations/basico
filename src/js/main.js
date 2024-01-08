@@ -1,4 +1,4 @@
-import './components/_url'
+import './components/_common'
 import './components/_cookies'
 import './components/_comments'
 import './components/_menu'
