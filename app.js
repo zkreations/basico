@@ -21,16 +21,22 @@ const sourceDir = './src'
 const distDir = './dist'
 const dataFile = './data.json'
 
-require('dotenv').config()
-const devMode = process.env.NODE_ENV !== 'production'
+const [, , command] = process.argv
+const devMode = ['development', 'dev'].includes(command)
 
 let data = {}
 
 // Handlebars helpers
 // If a helper is missing, show a message in the console
-Handlebars.registerHelper('helperMissing', function (/* dynamic arguments */) {
+Handlebars.registerHelper('helperMissing', function () {
   const options = arguments[arguments.length - 1]
   return console.error(`Helper: {{${options.name}}} does not exist`)
+})
+
+// if block helper is missing is missing, show a message in the console
+Handlebars.registerHelper('blockHelperMissing', function () {
+  const options = arguments[arguments.length - 1]
+  return console.error(`Block helper: {{#${options.name}}} does not exist`)
 })
 
 // Include a file
@@ -104,6 +110,46 @@ Handlebars.registerHelper('variable', function (name = 'null', options) {
 
   const escapedOutput = `<Variable name="${name}" ${attributes.join(' ')}/>`
   return new Handlebars.SafeString(escapedOutput)
+})
+
+// Validate that all arguments are strings
+function validateStrings (...args) {
+  if (args.some(arg => typeof arg !== 'string')) {
+    throw new Error('All arguments must be strings')
+  }
+}
+
+// Utility helpers
+// StartsWith
+Handlebars.registerHelper('startsWith', function (string, prefix) {
+  validateStrings(string, prefix)
+  return string.startsWith(prefix)
+})
+
+// EndsWith
+Handlebars.registerHelper('endsWith', function (string, suffix) {
+  validateStrings(string, suffix)
+  return string.endsWith(suffix)
+})
+
+// Includes
+Handlebars.registerHelper('includes', function (string, substring) {
+  validateStrings(string, substring)
+  return string.includes(substring)
+})
+
+// Not
+Handlebars.registerHelper('not', function (value) {
+  if (typeof value === 'undefined') {
+    throw new Error('The argument must be defined')
+  }
+  return !value
+})
+
+// Replace
+Handlebars.registerHelper('replace', function (string, search, replacement) {
+  validateStrings(string, search, replacement)
+  return string.replace(search, replacement)
 })
 
 // Calculate time of execution of a function
@@ -271,6 +317,37 @@ const eraseAttrSpaces = (template) => {
   return transformedHTML
 }
 
+// Extract the skin variables and convert them to CSS variables
+const skinToCssVars = (template) => {
+  const regexGroup = /<Group[^>]*>([\s\S]*?)<\/Group>/g
+  const regexVariable = /<Variable\s+([^>]+)>/g
+
+  const matches = template.match(regexGroup) || []
+  const skinToCssVars = {}
+
+  matches.forEach((group) => {
+    const variableMatches = group.match(regexVariable) || []
+
+    variableMatches.forEach((variableMatch) => {
+      const variableName = variableMatch.match(/name="([^"]+)"/)[1]
+      const cssVariable = variableName.replace(/\./g, '-')
+      const cssValue = `$(${variableName})`
+
+      skinToCssVars[cssVariable] = cssValue
+
+      // Check if the variable is a font
+      if (variableMatch.includes('type="font"')) {
+        const cssVariableFamily = `${cssVariable}-family`
+        const cssValueFamily = `$(${variableName}.family)`
+
+        skinToCssVars[cssVariableFamily] = cssValueFamily
+      }
+    })
+  })
+
+  return skinToCssVars
+}
+
 // Compile all Handlebars templates
 const compileHbs = (folderPath = sourceDir) => {
   // Register all partials in the source directory
@@ -294,18 +371,29 @@ const compileHbs = (folderPath = sourceDir) => {
       // If it's a directory, recursively search for templates
       compileHbs(filePath)
     } else {
-      // Cargar los datos del archivo data.json
-
+      // If it's a file, load the data file and compile the template
       if (fs.existsSync(dataFile)) {
         data = JSON.parse(fs.readFileSync(dataFile, 'utf8'))
       }
 
+      // Add the devMode variable to the data
       data.devMode = devMode
 
+      let output = ''
       const source = fs.readFileSync(filePath, 'utf8')
       const template = Handlebars.compile(source)
-      let output = template(data)
 
+      // Generate the output with the data
+      output = template(data)
+
+      // Extract the skin variables and convert them to CSS variables
+      const skinVars = skinToCssVars(output)
+      data.skinVars = skinVars
+
+      // Generate the output with new skin variables
+      output = template(data)
+
+      // Format the output
       output = widgetCounter(output)
       output = eraseAttrSpaces(output)
 
@@ -321,7 +409,7 @@ const compileHbs = (folderPath = sourceDir) => {
 }
 
 // Watch for changes in the source directory
-if (process.argv[2] === 'compile') {
+if (command === 'compile') {
   (async () => {
     try {
       console.log(`${devMode ? 'Development mode' : 'Production mode'}: Compiling...`)
