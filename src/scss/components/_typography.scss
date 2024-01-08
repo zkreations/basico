@@ -202,7 +202,7 @@
   // All elements inside
   :where(p, figure, img, blockquote, ul, ol, pre, table, video, audio, iframe, details) {
     // Ignore the last element
-    &:not(:where(video[class], audio[class], :last-child, :where(figure, blockquote) :last-of-type, :where([class*=gallery] *))) {
+    &:not(:where(video[class], audio[class], :last-child, :where(figure, blockquote) :last-of-type, :where([class*=gallery] *, [class*=columns] > *))) {
       margin-bottom: var(--typography-spacing);
     }
   }
