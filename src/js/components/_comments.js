@@ -83,7 +83,7 @@ function createIframe (template, newSrc) {
 
 const replyComments = (buttons) => {
   // Load relay script
-  isObserver(FORM_SCRIPT, () => {
+  isObserver(COMMENT_FORM, () => {
     loadRelayScript(FORM_SCRIPT)
   }, { rootMargin })
 
