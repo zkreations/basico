@@ -6,11 +6,11 @@ html {
 }
 
 body {
-  background: var(--bg-image-body);
+  background: var(--body-background);
   background-size: cover;
-  background-color: var(--bg-body);
+  background-color: var(--body-background-color);
   color: var(--color-text);
-  font-family: var(--font-text);
+  font-family: var(--font-text-family);
   transition: background-color var(--duration);
   --block-space: 1rem;
 
@@ -36,10 +36,6 @@ body {
       transition: none !important;
     }
   }
-}
-
-::selection {
-  background-color: var(--color-selection);
 }
 
 ::-webkit-resizer {

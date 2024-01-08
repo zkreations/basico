@@ -9,7 +9,7 @@ Variables b:skin
   /*!
     * Name      : {{name}}
     * Theme URL : {{theme_uri}}
-    * Source    : {{sorce_uri}}
+    * Source    : {{source_uri}}
     * Version   : {{version}}
     * Author    : {{author}}
     * License   : {{license}}
@@ -55,10 +55,30 @@ Variables b:skin
   {{> Font}}
   {{> Hack}}
 
-  All styles
+  Skin CSS variables
   =====================*/
+  :root {
+  {{#each skinVars}}
+    {{#if (not (startsWith @key "dark-"))}}
+    --{{@key}}: {{this}};
+    {{/if}}
+  {{/each}}
+    --related-min-width: $(p.relatedMinWidth);
+    --line-clamp: $(e.snippetLines);
+    --toc-text: "$(t.toc)";
+    --copy-text: "$(t.copy)";
+    --copied-text: "$(t.copied)";
+    --show-more-text: "$(t.showMore)";
+    --show-less-text: "$(t.showLess)";
+  }
 
-  {{asset '/dist/css/root.css'}}
+  [data-theme="dark"] {
+  {{#each skinVars}}
+    {{#if (startsWith @key "dark-")}}
+    --{{replace @key "dark-" ""}}: {{this}};
+    {{/if}}
+  {{/each}}
+  }
 
   /*
   Your custom styles

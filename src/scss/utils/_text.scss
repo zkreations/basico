@@ -1,3 +1,14 @@
+$fonts: (
+  "font-title-family",
+  "font-text-family",
+);
+
+@each $font in $fonts {
+  .#{$font} {
+    font-family: var(--#{$font});
+  }
+}
+
 .fs {
   @include utility(font-size, $font-size-values, true)
 }
@@ -13,3 +24,4 @@
 @include utility(text-transform, capitalize uppercase lowercase);
 
 @include utility(text-decoration, underline line-through);
+

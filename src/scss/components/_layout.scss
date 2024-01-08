@@ -1,5 +1,5 @@
 .container {
-  max-width: var(--container);
+  max-width: var(--width-container);
   margin-left: auto;
   margin-right: auto;
   padding-right: 1rem;
@@ -72,12 +72,12 @@
     padding-top: 3rem;
     padding-bottom: 3rem;
     grid-template-areas: var(--content-areas, "content sidebar");
-    grid-template-columns: var(--content-columns, minmax(0, 1fr) var(--sidebar-width));
+    grid-template-columns: var(--content-columns, minmax(0, 1fr) var(--width-sidebar));
   }
 
   &-reverse {
     --content-areas: "sidebar content";
-    --content-columns: var(--sidebar-width) minmax(0, 1fr);
+    --content-columns: var(--width-sidebar) minmax(0, 1fr);
   }
 }
 
@@ -107,7 +107,7 @@
 
   &-title {
     color: var(--color-title);
-    font-family: var(--font-title);
+    font-family: var(--font-title-family);
   }
 
   &-body {

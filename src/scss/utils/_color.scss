@@ -9,11 +9,6 @@ $colors: (
   "color-header-subtitle",
 );
 
-$fonts: (
-  "font-title",
-  "font-text",
-);
-
 $bg: (
   "bg-body",
   "bg-inset",
@@ -24,12 +19,6 @@ $bg: (
 @each $color in $colors {
   .#{$color} {
     color: var(--#{$color});
-  }
-}
-
-@each $font in $fonts {
-  .#{$font} {
-    font-family: var(--#{$font});
   }
 }
 
