@@ -2,10 +2,10 @@
   "name": "Basico - Basic Blogger Template",
   "version": "2.0.0",
   "theme_uri": "https://store.zkreations.com/",
-  "sorce_uri": "https://github.com/zkreations/basico",
+  "source_uri": "https://github.com/zkreations/basico",
   "author": "Abel Daniel Moreira Moreno (https://github.com/danieIabel)",
   "license": "GPL (https://github.com/zkreations/basico/blob/main/LICENSE)",
-  "copyright": "2023 zkreations. All right reserved",
+  "copyright": "2024 zkreations. All right reserved",
   "root": {
     "b:defaultwidgetversion": "2",
     "b:layoutsVersion": "3",
