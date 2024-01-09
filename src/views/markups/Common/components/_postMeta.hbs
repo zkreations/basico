@@ -9,7 +9,7 @@ Create post meta
     <b:if cond='data:show.author'>
       <div class='post-meta-item has-icon'>
         <b:include name='@meteor' data='{ icon: "user" }'/>
-        <a class='post-author underline' expr:href='data:post.author.profileUrl != ""  ? data:post.author.profileUrl : data:skin.vars.c_profileUrl' rel='author'>
+        <a class='post-author underline' expr:href='data:post.author.profileUrl != ""  ? data:post.author.profileUrl : data:skin.vars.c_profileUrl' rel='author noopener noreferrer nofollow'>
           <data:post.author.name/>
         </a>
       </div>
