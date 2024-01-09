@@ -10,7 +10,7 @@ Module for enqueueing assets
     <style>/*<![CDATA[*/{{asset '/dist/css/typography'}}/*]]>*/</style>
   </b:if>
   {{!-- Main Js --}}
-  {{#unless devMode}}
+  {{#if (not devMode)}}
   <script defer src='https://cdn.jsdelivr.net/gh/zkreations/basico@2/dist/js/main.min.js'></script>
-  {{/unless}}
+  {{/if}}
 </b:includable>
