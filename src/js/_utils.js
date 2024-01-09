@@ -153,3 +153,17 @@ export function resizeImage (imgUrl, size) {
 
   return imgUrl.replace(REG_EXP, size)
 }
+
+// Check if the current date exceeded the expiration date
+// @param {string} key - The key of the localStorage
+// @return {boolean}
+export const isExpired = (key) => {
+  const date = localStorage.getItem(key)
+  if (date) {
+    const now = new Date()
+    const diff = now - new Date(date)
+    const days = diff / 1000 / 60 / 60 / 24
+    return days > 7
+  }
+  return true
+}

@@ -1,8 +1,10 @@
-import { getAttrs, attrsToString } from '../_utils'
+import { getAttrs, attrsToString, isExpired } from '../_utils'
 
 const iconElements = document.querySelectorAll('[data-i]')
+const isPurgeIcons = document.querySelector('body.is-purge-icons')
+const ICONS_STORAGE = 'meteorIcons'
+const ICONS_DATE_STORAGE = 'meteorIconsDate'
 
-// Replace the icon element with the svg
 function iconElement (icons = {}) {
   iconElements.forEach((iconElement) => {
     const icon = iconElement.getAttribute('data-i')
@@ -31,24 +33,39 @@ function iconElement (icons = {}) {
   })
 }
 
-// Get icons from Meteor
-function iconsMeteor () {
+const iconsMeteor = () => {
   fetch('https://cdn.jsdelivr.net/npm/meteor-icons@3/variants/icons.json')
     .then(response => response.json())
     .then(icons => {
-      localStorage.setItem('meteorIcons', JSON.stringify(icons))
+      localStorage.setItem(ICONS_STORAGE, JSON.stringify(icons))
+      localStorage.setItem(ICONS_DATE_STORAGE, new Date())
       iconElement(icons)
     })
     .catch(error => console.error(error))
 }
 
-// Initialize icons
-function initIcons () {
+function removeCache () {
+  localStorage.removeItem(ICONS_STORAGE)
+  localStorage.removeItem(ICONS_DATE_STORAGE)
+}
+
+const initIcons = () => {
   if (iconElements.length === 0) return
-  if (!localStorage.getItem('meteorIcons')) {
+  const expired = isExpired(ICONS_DATE_STORAGE)
+  console.log('expired', expired)
+
+  if (isExpired(ICONS_DATE_STORAGE)) {
+    removeCache()
+  }
+
+  if (!localStorage.getItem(ICONS_STORAGE)) {
+    iconsMeteor()
+  } else if (isPurgeIcons) {
+    removeCache()
     iconsMeteor()
   } else {
-    iconElement(JSON.parse(localStorage.getItem('meteorIcons')))
+    iconElement(JSON.parse(localStorage.getItem(ICONS_STORAGE)))
+    // Borrar del almacenamiento "meteorIcons" si la fecha es mayor a 7 días
   }
 }
 
