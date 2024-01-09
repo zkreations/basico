@@ -72,7 +72,7 @@
 
 .typography :where(h1, h2, h3, h4, h5, h6) {
   margin-bottom: var(--typography-spacing-headings);
-  font-family: var(--font-title);
+  font-family: var(--font-title-family);
   color: var(--color-title);
   font-weight: 800;
 }
@@ -212,8 +212,8 @@
 .typography :where(br):not(:where(p > *)) {
   display: none;
 }
-.typography > :where(div):not(:where(:last-child)):not(:where(video[class], audio[class], :last-child, :where(figure, blockquote) :last-of-type, :where([class*=gallery] *))),
-.typography :where(p, figure, img, blockquote, ul, ol, pre, table, video, audio, iframe, details):not(:where(video[class], audio[class], :last-child, :where(figure, blockquote) :last-of-type, :where([class*=gallery] *))) {
+.typography > :where(div):not(:where(:last-child)):not(:where(video[class], audio[class], :last-child, :where(figure, blockquote) :last-of-type, :where([class*=gallery] *, [class*=columns] > *))),
+.typography :where(p, figure, img, blockquote, ul, ol, pre, table, video, audio, iframe, details):not(:where(video[class], audio[class], :last-child, :where(figure, blockquote) :last-of-type, :where([class*=gallery] *, [class*=columns] > *))) {
   margin-bottom: var(--typography-spacing);
 }
 

@@ -255,11 +255,11 @@ html:not([data-theme=dark]) .js-scheme .i-moon, html[data-theme=dark] .js-scheme
 }
 
 body {
-  background: var(--bg-image-body);
+  background: var(--body-background);
   background-size: cover;
-  background-color: var(--bg-body);
+  background-color: var(--body-background-color);
   color: var(--color-text);
-  font-family: var(--font-text);
+  font-family: var(--font-text-family);
   transition: background-color var(--duration);
   --block-space: 1rem;
 }
@@ -281,14 +281,6 @@ body.is-preview::after {
 }
 body.preload * {
   transition: none !important;
-}
-
-::-moz-selection {
-  background-color: var(--color-selection);
-}
-
-::selection {
-  background-color: var(--color-selection);
 }
 
 ::-webkit-resizer {
@@ -702,7 +694,7 @@ ins.adsbygoogle[data-ad-status=unfilled] {
 }
 
 .container {
-  max-width: var(--container);
+  max-width: var(--width-container);
   margin-left: auto;
   margin-right: auto;
   padding-right: 1rem;
@@ -765,12 +757,12 @@ ins.adsbygoogle[data-ad-status=unfilled] {
     padding-top: 3rem;
     padding-bottom: 3rem;
     grid-template-areas: var(--content-areas, "content sidebar");
-    grid-template-columns: var(--content-columns, minmax(0, 1fr) var(--sidebar-width));
+    grid-template-columns: var(--content-columns, minmax(0, 1fr) var(--width-sidebar));
   }
 }
 .main-reverse {
   --content-areas: "sidebar content";
-  --content-columns: var(--sidebar-width) minmax(0, 1fr);
+  --content-columns: var(--width-sidebar) minmax(0, 1fr);
 }
 
 .sidebar {
@@ -798,7 +790,7 @@ ins.adsbygoogle[data-ad-status=unfilled] {
 }
 .post-title {
   color: var(--color-title);
-  font-family: var(--font-title);
+  font-family: var(--font-title-family);
 }
 .post-body {
   line-height: 1.75;
@@ -1262,14 +1254,6 @@ ins.adsbygoogle[data-ad-status=unfilled] {
   color: var(--color-header-subtitle);
 }
 
-.font-title {
-  font-family: var(--font-title);
-}
-
-.font-text {
-  font-family: var(--font-text);
-}
-
 .bg-body {
   background-color: var(--bg-body);
 }
@@ -1576,6 +1560,14 @@ ins.adsbygoogle[data-ad-status=unfilled] {
 
 .events-auto {
   pointer-events: auto;
+}
+
+.font-title-family {
+  font-family: var(--font-title-family);
+}
+
+.font-text-family {
+  font-family: var(--font-text-family);
 }
 
 .fs-1 {

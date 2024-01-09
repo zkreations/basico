@@ -6,14 +6,6 @@
     document.body.classList.remove('preload');
   });
 
-  // Remove 'm' parameter from URL
-  const url = new URL(window.location.href);
-  const mobileParam = url.searchParams.get('m');
-  if (mobileParam) {
-    url.searchParams.delete('m');
-    window.history.replaceState({}, '', url);
-  }
-
   // Load a script from a URL and return a promise
   // @param {string} src
   // @returns {Promise}
@@ -259,7 +251,7 @@
   }
   const replyComments = buttons => {
     // Load relay script
-    isObserver(FORM_SCRIPT, () => {
+    isObserver(COMMENT_FORM, () => {
       loadRelayScript(FORM_SCRIPT);
     }, {
       rootMargin
