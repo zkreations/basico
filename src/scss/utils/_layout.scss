@@ -1,3 +1,14 @@
+$layouts: (
+  "width-container",
+  "width-sidebar",
+);
+
+@each $layout in $layouts {
+  .#{$layout} {
+    font-family: var(--#{$layout});
+  }
+}
+
 // Positioning
 @include utility(position, absolute relative fixed sticky);
 

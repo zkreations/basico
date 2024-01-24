@@ -58,11 +58,11 @@ Variables b:skin
   Skin CSS variables
   =====================*/
   :root {
-  {{#each skinVars}}
+    {{#each skinVars}}
     {{#if (not (startsWith @key "dark-"))}}
     --{{@key}}: {{this}};
     {{/if}}
-  {{/each}}
+    {{/each}}
     --related-min-width: $(p.relatedMinWidth);
     --line-clamp: $(e.snippetLines);
     --toc-text: "$(t.toc)";
