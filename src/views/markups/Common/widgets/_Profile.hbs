@@ -5,10 +5,10 @@ Content of the widget Profile
 @data {string} data:team - Show team members
 --}}
 <b:includable id='widget:Profile'>
-  <div class='profile flex g-0.75'>
-    <b:class cond='data:this.team' name='profile-team wrap'/>
+  <div class='profile flex'>
     {{!-- Show team members --}}
     <b:if cond='data:team'>
+      <b:class name='profile-team g-0.75 wrap'/>
       <b:loop values='data:authors' var='author'>
         <a class='profile-image' expr:href='data:author.userUrl' rel='nofollow' expr:title='data:author.display-name'>
           <b:include name='@avatar' data='{ src: data:author.authorPhoto.image, default: data:skin.vars.c_avatar, resize: 60 }'/>
@@ -16,10 +16,11 @@ Content of the widget Profile
       </b:loop>
     {{!-- Show individual profile --}}
     <b:else/>
+      <b:class name='profile-user g-1'/>
       <a class='profile-image flex-none' expr:href='data:this.userUrl' rel='nofollow' expr:title='data:this.displayname'>
         <b:include name='@avatar' data='{ src: data:this.authorPhoto.image, default: data:skin.vars.c_avatar, resize: 60 }'/>
       </a>
-      <div class='profile-body'>
+      <div class='profile-body flex column g-0.5'>
         {{!-- Show author name --}}
         <a class='profile-name' expr:href='data:this.userUrl' rel='nofollow'><data:this.displayname/></a>
         {{!-- Show author description --}}
@@ -28,7 +29,7 @@ Content of the widget Profile
         </b:if>
         {{!-- Show author location --}}
         <b:if cond='data:this.showlocation and data:this.location != ""'>
-          <div class='profile-locale'><data:this.location/></div>
+          <p class='profile-locale fw-300'><data:this.location/></p>
         </b:if>
       </div>
     </b:if>
