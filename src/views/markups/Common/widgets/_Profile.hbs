@@ -5,19 +5,19 @@ Content of the widget Profile
 @data {string} data:team - Show team members
 --}}
 <b:includable id='widget:Profile'>
-  <div class='profile'>
-    <b:class cond='data:this.team' name='profile-team'/>
+  <div class='profile flex g-0.75'>
+    <b:class cond='data:this.team' name='profile-team wrap'/>
     {{!-- Show team members --}}
     <b:if cond='data:team'>
       <b:loop values='data:authors' var='author'>
         <a class='profile-image' expr:href='data:author.userUrl' rel='nofollow' expr:title='data:author.display-name'>
-          <b:include name='@image' data='{ src: (data:author.authorPhoto.image ?: data:skin.vars.c_avatar), resize: 60, ratio: "1:1" }'/>
+          <b:include name='@avatar' data='{ src: data:author.authorPhoto.image, default: data:skin.vars.c_avatar, resize: 60 }'/>
         </a>
       </b:loop>
     {{!-- Show individual profile --}}
     <b:else/>
-      <a class='profile-image' expr:href='data:this.userUrl' rel='nofollow' expr:title='data:this.displayname'>
-        <b:include name='@image' data='{ src: (data:this.authorPhoto.image ?: data:skin.vars.c_avatar), resize: 60, ratio: "1:1" }'/>
+      <a class='profile-image flex-none' expr:href='data:this.userUrl' rel='nofollow' expr:title='data:this.displayname'>
+        <b:include name='@avatar' data='{ src: data:this.authorPhoto.image, default: data:skin.vars.c_avatar, resize: 60 }'/>
       </a>
       <div class='profile-body'>
         {{!-- Show author name --}}
