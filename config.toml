@@ -31,7 +31,7 @@ summaryLength = 20
   github_repo_edit = "https://github.com/zkreations/basico/blob/main/site/content"
   date_format = "January 2, 2006"
   versions = [ "2.0" ]
-  badge_url = "https://www.zkreations.com"
+  badge_url = "https://store.zkreations.com/2024/01/basico-tema-esencial.html"
   main_icon = "layout"
   # main_logo = "tu-logo.svg"
 
