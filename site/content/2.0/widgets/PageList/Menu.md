@@ -14,6 +14,14 @@ Escribe como **mínimo 2 guiones bajos** "__" al inicio del título de un elemen
 
 {{< preview "/images/widgets/MenuConfig.png" >}}
 
+## Enlace externo
+
+Para que un enlace sea externo y por lo tanto se abra en una nueva pestaña, debes agregar al final de la URL el parámetro `?ref=` con cualquier valor. Por ejemplo:
+
+```text
+https://www.google.com/?ref=zkreations
+```
+
 ## Opciones
 
 No disponible para este widget.
