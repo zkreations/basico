@@ -1,0 +1,177 @@
+
+@mixin setTintVars($color, $prefix){
+  --#{$prefix}: #{$color};
+  --#{$prefix}-bg: #{tint-color($color, 80%)};
+}
+
+$data-types:(
+  "string": #4a148c,
+  "number": #b71c1c,
+  "boolean": #00897b,
+  "url": #0d47a1,
+  "image": #f57f17,
+  "date": #1a237e,
+  "locale": #0097a7,
+  "message": #ff5722,
+  "object": #1b5e20,
+  "array": #827717,
+  "none": #607d8b,
+);
+
+.brackets {
+  font-family: var(--font-monospace);
+  &::before, &::after {
+    color: var(--color-border);
+  }
+  &::before {
+    content: "{";
+  }
+  &::after {
+    content: "}";
+  }
+}
+
+.type {
+  padding: 0.25em 0.5em;
+  white-space: nowrap;
+  background-color: var(--type-bg);
+  color: var(--type, inherit);
+  border-radius: 0.25rem;
+  font-family: var(--font-monospace);
+
+  @each $type, $value in $data-types {
+    &-#{$type} {
+      @include setTintVars($value,"type");
+    }
+  }
+}
+
+.preview {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" fill="rgba(0, 0, 0, 0.1)"><path d="M7 7V8H8V7Z"/></svg>');
+  background-size: 15px;
+  padding: 22px;
+  background-color: #f5f5f5;
+  display: inline-block;
+
+  img {
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1) , 0px 4px 6px -2px rgba(0,0,0,0.05);
+  }
+}
+
+.og {
+  max-width: var(--og-width, 500px);
+
+  &-image {
+    background-color: #d7d9e6;
+    padding-bottom: calc(var(--og-ratio-y,9)/ var(--og-ratio-x,16) * 100%);
+    position: relative;
+
+    svg {
+      fill: #626475;
+      position: absolute;
+      width: 25%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+  }
+
+  &-meta {
+    background-color: var(--og-meta-bg, var(--bg-inset));
+    padding: 1rem 1.25rem;
+    font-size: .875rem;
+  }
+
+  &-url {
+    text-transform: var(--og-url-transform, uppercase);
+  }
+
+  &-title {
+    font-weight: var(--og-title-weight, 700);
+    color: var(--og-title-color, var(--color-title));
+    font-size: var(--og-title-size, 1.125rem);
+  }
+
+  &-fb {
+    --og-ratio-x: 1200;
+    --og-ratio-y: 630;
+  }
+
+  &-twitter {
+    --og-meta-bg: transparent;
+    --og-title-size: 1rem;
+    --og-title-weight: 500;
+    --og-url-transform: none;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+
+  &-discord {
+    --og-meta-bg: transparent;
+    --og-title-size: 1rem;
+    --og-title-color: #00b0f4;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #2f3136;
+    border-left: 4px solid #202225;
+    color: #dcddde;
+
+    .og-image {
+      margin-top: 1rem;
+    }
+  }
+}
+
+
+.ratio {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg-inset);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  max-width: 340px;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-top: calc(var(--ratio-y, 9)/ var(--ratio-x, 16) * 100%)
+  }
+  
+  &-21\:9 {
+    --ratio-x: 21;
+    --ratio-y: 9
+  }
+  
+  &-16\:9 {
+    --ratio-x: 16;
+    --ratio-y: 9
+  }
+  
+  &-4\:3 {
+    --ratio-x: 4;
+    --ratio-y: 3
+  }
+  
+  &-1\:1 {
+    --ratio-x: 1;
+    --ratio-y: 1
+  }
+  
+  &-1\:2 {
+    --ratio-x: 1;
+    --ratio-y: 2
+  }
+  
+  &-2\:3 {
+    --ratio-x: 2;
+    --ratio-y: 3
+  }
+  
+  &-5\:7 {
+    --ratio-x: 5;
+    --ratio-y: 7
+  }
+}

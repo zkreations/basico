@@ -1,0 +1,53 @@
+title = 'Basico'
+baseURL = 'https://basico.hudocs.com/'
+
+copyright = "Created by [zkreations](https://www.zkreations.com)"
+canonifyURLs = true
+enableRobotsTXT = true
+enableGitInfo = true
+
+enableInlineShortcodes = true
+disableKinds = ["taxonomy","taxonomyTerm","term","RSS"]
+
+languageCode = 'es'
+defaultContentLanguage = 'es'
+
+summaryLength = 20
+
+# Shortcodes HTML
+[markup]
+  [markup.highlight]
+    noClasses = false
+
+  [markup.goldmark.renderer]
+    unsafe = true
+
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[params]
+  description = "Documentacion del tema Basico"
+  github_repo_edit = "https://github.com/zkreations/basico/blob/main/site/content"
+  date_format = "January 2, 2006"
+  versions = [ "2.0" ]
+  badge_url = "https://www.zkreations.com"
+  main_icon = "layout"
+  # main_logo = "tu-logo.svg"
+
+[module]
+  [[module.mounts]]
+    source = 'site/content'
+    target = 'content'
+  [[module.mounts]]
+    source = 'site/static'
+    target = 'static'
+  [[module.mounts]]
+    source = 'site/layouts'
+    target = 'layouts'
+  [[module.mounts]]
+    source = 'site/assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = 'site/i18n'
+    target = 'i18n'

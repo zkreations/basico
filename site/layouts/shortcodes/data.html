@@ -1,0 +1,17 @@
+{{- $type := .Get 0 | default "none" -}}
+{{- $class := replaceRE `(\[.*\])` "" $type -}}
+
+{{- $path := "2016/04/typeof-" -}}
+
+{{- if or (eq $type "date") (eq $type "locale") (eq $type "message") -}}
+  {{- $path := "2017/04/typeof-" -}}
+{{- end -}}
+
+{{- if or (not (in $type "{")) (not (in $type "}")) -}}
+  <a class="type{{ with $class }} type-{{ . }}{{ end }}" href="https://bloggercode-blogconnexion.blogspot.com/{{ $path }}{{ $type }}.html" target="_blank" rel="nofollow noopener">{{ $type }}</a>
+{{- else -}}
+  {{- $data := .Get 0 -}}
+  {{- $data = replace $data "{" (printf `<i class="%s">` "brackets") -}}
+  {{- $data = replace $data "}" "</i>" -}}
+  <pre>{{ $data | markdownify }}</pre>
+{{- end -}}

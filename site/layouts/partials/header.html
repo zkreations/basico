@@ -1,0 +1,96 @@
+{{- $logo := .Site.Params.main_logo -}}
+{{- $title := .Site.Title | title -}}
+
+<div class="container">
+  <div class="header-wrapper flex items-center relative">
+    <div class="header-left flex items-center">
+      <button class="header-toggle" data-outside="docs-sidebar" aria-label="toggle navigation">
+        {{ partial "svg" (dict "icon" "bars") }}
+      </button>
+      <div class="header-logo flex items-center fw-500">
+        <a class="has-icon i-md" href='{{ "/" | relLangURL }}'>
+          {{- if $logo -}}
+            <img class="header-logo-image" src="{{- $logo -}}" alt="{{- $title -}}">
+          {{- else -}}
+            {{- with $.Site.Params.main_icon -}}
+              {{ partial "svg" (dict "icon" . "class" "flex-none header-logo-icon" ) }}
+            {{- end -}}
+            {{- $title -}}
+          {{- end -}}
+        </a>
+      </div>
+    </div>
+
+    <!-- Buscador -->
+    <div class="header-middle">
+      <button class="search-toggle has-icon" data-outside="search-box">
+        {{ partial "svg" (dict "icon" "search" "class" "flex-none") }}
+        <span>{{- i18n "search_in_doc" -}}</span>
+      </button>      
+    </div>
+
+    <!-- Botones de idioma, tema y versiones -->
+    <div class="header-right">
+      <!-- Dark mode toggle -->
+      <button class="theme-toggle" data-outside="docs-mode" aria-label='{{ i18n "system" }}'>
+        {{ partial "svg" (dict "icon" "sun") }}
+      </button>
+
+      <!-- Language toggle -->
+      {{- if .Site.IsMultiLingual -}}
+        <button class="lang-toggle" data-outside="docs-language" aria-label='{{ i18n "languages" }}'>
+          {{ partial "svg" (dict "icon" "language") }}
+        </button>
+      {{- end -}}
+
+      <a class="toc-toggle" href="#doc" aria-label='{{ i18n "table_of_contents_toogle" }}'>
+        {{ partial "svg" (dict "icon" "bars-sort") }}
+      </a>
+
+      {{- with .Section -}}
+        <button class="toggle-version" data-outside="docs-versions" aria-label='{{ i18n "versions" }}'>
+          {{ . }}
+        </button>
+      {{- end -}}
+    </div>
+
+    <div class="dropdown" id="docs-mode">
+      <div class="list fw-500 theme-handle">
+        <button class="list-link has-icon" data-theme="system">
+          {{ partial "svg" (dict "icon" "desktop") }}
+          {{ i18n "system" }}
+        </button>
+        <button class="list-link has-icon" data-theme="light">
+          {{ partial "svg" (dict "icon" "sun") }}
+          {{ i18n "light" }}
+        </button>
+        <button class="list-link has-icon" data-theme="dark">
+          {{ partial "svg" (dict "icon" "moon") }}
+          {{ i18n "dark" }}
+        </button>
+      </div>
+    </div>
+
+    {{- with .Site.Params.versions -}}
+      <div class="dropdown" id="docs-versions">
+        <div class="list fw-500">
+          {{ range $.Site.Params.versions }}
+            <a class="list-link" href="/{{ . }}/">{{ . }}</a>
+          {{ end }}
+          <a class="list-link" href='{{ "/" | relLangURL }}'>{{ i18n "versions" }}</a>
+        </div>
+      </div>
+    {{- end -}}
+    
+    {{- if .Site.IsMultiLingual -}}
+      <div class="dropdown" id="docs-language">
+        <div class="list fw-500">
+          {{ range $.Site.Home.Translations }}
+            <a class="list-link" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+          {{ end }}
+        </div>
+      </div>
+    {{- end -}}
+    
+  </div>
+</div>

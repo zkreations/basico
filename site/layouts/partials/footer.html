@@ -1,0 +1,16 @@
+{{- $date := .Lastmod -}}
+
+{{- if .GitInfo }}
+  {{- $date := .GitInfo.AuthorDate  -}}
+{{- end }}
+
+{{- $lastmod := $date.Format (.Site.Params.date_format | default "2006-01-02") -}}
+
+<footer class="footer">
+  <div class="footer-wrapper">
+    <div class="footer-item">{{ i18n "edited" }}: {{ $lastmod }}</div>
+    {{- with .Site.Copyright }}
+      <div class="footer-item">{{ . | markdownify }}</div>
+    {{- end }}
+  </div>
+</footer>

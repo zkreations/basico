@@ -1,0 +1,6 @@
+{{- $url := .Get 0 -}}
+{{- $imageUrl := path.Join "/site/static/" $url -}}
+
+<p class="preview">
+  <img src="{{ $url | safeURL }}" alt="preview" class="preview-image" loading="lazy"{{ with (imageConfig $imageUrl) -}} width="{{ .Width }}" height="{{ .Height }}"{{ end }}/>
+</p>
