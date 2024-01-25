@@ -279,8 +279,10 @@ body.is-preview::after {
   z-index: 999;
   inset: 0;
 }
-body.preload * {
-  transition: none !important;
+@media (scripting: enabled) {
+  body.preload * {
+    transition: none !important;
+  }
 }
 
 ::-webkit-resizer {

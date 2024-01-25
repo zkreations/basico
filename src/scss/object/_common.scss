@@ -31,9 +31,12 @@ body {
     }
   }
 
-  &.preload {
-    * {
-      transition: none !important;
+  // If javascript is enabled
+  @media (scripting: enabled) {
+    &.preload {
+      * {
+        transition: none !important;
+      }
     }
   }
 }
