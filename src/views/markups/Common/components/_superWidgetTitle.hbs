@@ -4,8 +4,15 @@ Remplace widget-title
 --}}
 <b:includable id='widget-title'>
   <b:include name='@attr' data='{["id"],["data-version"]}'/>
-  {{!-- If sectionId is not "header" or title exists --}}
-  <b:if cond='data:widget.sectionId != "header" and (data:defaultTitle or data:title.length != 0)'>
+  <b:class expr:name='data:widget.instanceId'/>
+  {{!-- If widget is AdSense, Header or Blog --}}
+  <b:if cond='["AdSense","Header","Blog"] contains data:widget.type'>
+    <b:comment>Title is not needed</b:comment>
+  {{!-- If widget is in header or footer section --}}
+  <b:elseif cond='["header","footer"] contains data:widget.sectionId'/>
+    <b:comment>Title is not available</b:comment>
+  {{!-- If title is not empty --}}
+  <b:elseif cond='data:defaultTitle or data:title.length != 0'/>
     {{!-- Title --}}
     <div class='widget-title'>
       <span class='widget-name fw-500'>

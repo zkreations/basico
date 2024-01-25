@@ -74,19 +74,11 @@ Default markups for all widgets
       <b:include name='content'/>
     </b:includable>
     <b:includable id='content'>
-      {{!-- Add a wrapper for all widgets --}}
-      <div class='widget-content'>
+      {{!-- Add a wrapper for all widgets, except AdSense, Header and Blog --}}
+      <b:tag class='widget-content' cond='["AdSense","Header","Blog"] not contains data:widget.type' name='div'>
         <b:include expr:name='"widget:" + data:widget.type'/>
-      </div>
+      </b:tag>
     </b:includable>
-  </b:defaultmarkup>
-  {{!-- AdSense, Header and Blog widgets not require a wrapper or a title --}}
-  <b:defaultmarkup type='AdSense,Header,Blog'>
-    <b:includable id='main' var='this'>
-      <b:include name='@attr' data='{["id"],["data-version"]}'/>
-      <b:include expr:name='"widget:" + data:widget.type'/>
-    </b:includable>
-    <b:includable id='content'/>
   </b:defaultmarkup>
   {{!-- Unnecessary or unused widgets --}}
   <b:defaultmarkup type='BloggerButton,BlogList,Feed,ReportAbuse,Stats,Translate,Wikipedia'>
