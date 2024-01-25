@@ -151,6 +151,20 @@
     return imgUrl.replace(REG_EXP, size);
   }
 
+  // Check if the current date exceeded the expiration date
+  // @param {string} key - The key of the localStorage
+  // @return {boolean}
+  const isExpired = key => {
+    const date = localStorage.getItem(key);
+    if (date) {
+      const now = new Date();
+      const diff = now - new Date(date);
+      const days = diff / 1000 / 60 / 60 / 24;
+      return days > 7;
+    }
+    return true;
+  };
+
   const REG_EXP = /cookieOptions\.(\w+)\) \|\| '(.+)'/g;
   const cookieJs = '/js/cookienotice.js';
   const textarea = document.getElementById('bjs');
@@ -548,8 +562,9 @@
   TOGGLE && TOGGLE.addEventListener('click', toggleMode);
 
   const iconElements = document.querySelectorAll('[data-i]');
-
-  // Replace the icon element with the svg
+  const isPurgeIcons = document.querySelector('body.is-purge-icons');
+  const ICONS_STORAGE = 'meteorIcons';
+  const ICONS_DATE_STORAGE = 'meteorIconsDate';
   function iconElement() {
     let icons = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     iconElements.forEach(iconElement => {
@@ -574,24 +589,34 @@
       iconElement.parentNode.replaceChild(svg, iconElement);
     });
   }
-
-  // Get icons from Meteor
-  function iconsMeteor() {
+  const iconsMeteor = () => {
     fetch('https://cdn.jsdelivr.net/npm/meteor-icons@3/variants/icons.json').then(response => response.json()).then(icons => {
-      localStorage.setItem('meteorIcons', JSON.stringify(icons));
+      localStorage.setItem(ICONS_STORAGE, JSON.stringify(icons));
+      localStorage.setItem(ICONS_DATE_STORAGE, new Date());
       iconElement(icons);
     }).catch(error => console.error(error));
+  };
+  function removeCache() {
+    localStorage.removeItem(ICONS_STORAGE);
+    localStorage.removeItem(ICONS_DATE_STORAGE);
   }
-
-  // Initialize icons
-  function initIcons() {
+  const initIcons = () => {
     if (iconElements.length === 0) return;
-    if (!localStorage.getItem('meteorIcons')) {
+    const expired = isExpired(ICONS_DATE_STORAGE);
+    console.log('expired', expired);
+    if (isExpired(ICONS_DATE_STORAGE)) {
+      removeCache();
+    }
+    if (!localStorage.getItem(ICONS_STORAGE)) {
+      iconsMeteor();
+    } else if (isPurgeIcons) {
+      removeCache();
       iconsMeteor();
     } else {
-      iconElement(JSON.parse(localStorage.getItem('meteorIcons')));
+      iconElement(JSON.parse(localStorage.getItem(ICONS_STORAGE)));
+      // Borrar del almacenamiento "meteorIcons" si la fecha es mayor a 7 días
     }
-  }
+  };
   initIcons();
 
   const BLOG_ID = document.querySelector('meta[name="home-blog-admin"]');
