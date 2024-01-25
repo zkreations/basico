@@ -20,6 +20,7 @@ Blogger cuenta con etiquetas tipo {{< data message >}} que se traducen al idioma
 | `t.showLess`        | Show less                         |
 | `t.showMore`        | Show more                         |
 | `t.sources`         | Sources                           |
+| `t.sponsored`       | This article is an advertisement  |
 | `t.toc`             | Table of contents                 |
 {{< /table >}}
 
