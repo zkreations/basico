@@ -1,5 +1,6 @@
 ---
 title: Adjuntos
+badge: pro
 ---
 
 Puedes emplear la función "**Enlaces de adjunto**" en Blogger, pero primero debes [habilitarla en la configuración de tu blog](https://www.zkreations.com/p/faq.html#habilitar-enlaces-de-adjuntos). Una vez activada, encontrarás esta opción en el editor de entradas, entre la fecha y la ubicación.
@@ -32,5 +33,5 @@ Agrega un enlace hacia la fuente de la información que estás citando, agregand
 
 Esta es una **característica premium** y solo está disponible en la version pagada del tema. Si el enlace que agregaste [proviene de una marca reconocida](https://meteoricons.com/#brand) por este tema, el logo en formato de ícono aparecerá junto al enlace:
 
-
+{{< preview "/images/entries/attachments-brand.png" >}}
 
