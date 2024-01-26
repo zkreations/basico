@@ -21,7 +21,7 @@ Dirígete al apartado **Temas > Editar HTML**, desplázate hasta el final del c�
 </b:defaultmarkups>
 ```
 
-Tendrás que reemplazar `HOOK_NAME` por el nombre del hook que deseas modificar, que deberás obtener de la siguiente que encontrarás a continuación.
+Tendrás que reemplazar `HOOK_NAME` por el nombre del hook que deseas modificar.
 
 ## Hooks
 
