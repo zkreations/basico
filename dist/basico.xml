@@ -1400,7 +1400,7 @@
                   </h3>
                 </b:if>
                 <b:include cond='data:this.postDisplay.showSnippet' name='@snippet' data='{ class: "populars-snippet", string: data:post.snippets.long, length: 80 }'/>
-                <div class='populars-time has-icon'>
+                <div class='populars-time has-icon i-s'>
                   <b:include name='@meteor' data='{ icon: "calendar" }'/>
                   <time expr:datetime='data:post.date.iso8601'><data:post.date/></time>
                 </div>
