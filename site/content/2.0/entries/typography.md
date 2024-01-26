@@ -32,6 +32,6 @@ Si por alguna razón necesitas utilizar los saltos de línea tradicionales, pued
 
 ## Tipografía
 
-La Tipografía de mis trabajos **es universal** y pueden ser utilizados en cualquiera de mis temas. Tomé la decisión de normalizarlos para facilitar su uso y evitar confusiones. Esto también te permitirá **cambiar de tema sin conservando tus entradas**. Aprende más sobre los shortcodes en la página que realicé para ellos: 
+La tipografía de mis trabajos **es universal** y pueden ser utilizados en cualquiera de mis temas. Tomé la decisión de normalizarlos para facilitar su uso y evitar problemas de compatibilidad. Esto también te permite **cambiar de tema conservando tus entradas**:
 
 {{< pagelink title="Tipografía universal" name="Códigos para insertar en articulos" href="https://www.zkreations.com/p/typography.html" >}}
