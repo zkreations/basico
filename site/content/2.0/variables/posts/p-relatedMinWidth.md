@@ -13,9 +13,9 @@ Ancho mínimo para las columnas de los artículos relacionados. El valor esperad
 Si el valor ingresado no es válido, el valor por defecto será `null`.
 
 {{< table >}}
-| Value   | Nombre             | Tipo                 | Descripción   
-| ------- | ------------------ | -------------------- | --------------
-| `unit`  | Unidad de medida  | {{< data "{unit}" >}}  | Cantidad de elementos relacionados a mostrar
+| Value   | Nombre             | Tipo                  | Descripción   
+| ------- | ------------------ | --------------------- | --------------
+| `unit`  | Unidad de medida  | {{< data "{unit}" >}}  | Ancho mínimo de los artículos relacionados.
 {{< /table >}}
 
 
