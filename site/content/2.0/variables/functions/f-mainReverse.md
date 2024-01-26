@@ -26,4 +26,4 @@ La posición del blog y el sidebar **se intercambian**.
 
 ## false
 
-El blog y el sidebar** mantienen su posición** original.
+El blog y el sidebar **mantienen su posición** original.

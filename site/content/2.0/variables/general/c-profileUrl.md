@@ -21,6 +21,6 @@ Cualquier valor ingresado será interpretado como un enlace.
 
 ## link
 
-El enlace especificado se usara como vinculo en los perfiles de Blogger privados.
+El enlace especificado se usará como vínculo en los perfiles de Blogger privados.
 
 {{< preview "/images/variables/general/c-profileUrl.png" >}}

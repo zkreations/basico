@@ -2,7 +2,7 @@
 title: e.lazyStart
 ---
 
-Especifica el número de la entrada desde donde se empezará a aplicar el atributo `loading="lazy"` a las imágenes.
+Especifica el número de la entrada desde donde se empezará a usar `lazy` en las imágenes. Esto **no se aplica** a las paginas estáticas ni a las entradas individuales. Para estos casos te recomendamos activar la [carga diferida de Blogger](https://www.zkreations.com/p/faq.html#habilitar-optimizacin-de-imgenes).
 
 ```xml
 <Variable name="e.lazyStart" description="e.lazyStart" type="string" value="2"/>

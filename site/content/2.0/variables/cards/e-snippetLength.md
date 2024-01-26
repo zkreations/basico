@@ -2,7 +2,7 @@
 title: e.snippetLength
 ---
 
-Cantidad máxima de caracteres para los resúmenes de entradas.
+Cantidad máxima de caracteres para los resúmenes de entradas. No tiene efecto si los resúmenes están deshabilitados.
 
 ```xml
 <Variable name="e.snippetLength" description="e.snippetLength" type="string" value="360"/>

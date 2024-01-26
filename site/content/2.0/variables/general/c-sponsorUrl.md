@@ -3,7 +3,7 @@ title: c.sponsorUrl
 badge: pro
 ---
 
-Enlace que será usado para en la etiqueta de patrocinio.
+Enlace que será usado para la etiqueta de patrocinio.
 
 ```xml
 <Variable name="c.sponsorUrl" description="c.sponsorUrl" type="string" value=""/>

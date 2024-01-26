@@ -22,7 +22,7 @@ Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 ## true
 
-En todos los bloques de código se mostrará el botón que le permite al usuario copiar el código rapidamente.
+En todos los bloques de código se mostrará el botón que le permite al usuario copiar el código rápidamente.
 
 {{< preview "/images/variables/posts/p-codeButton-true.png" >}}
 

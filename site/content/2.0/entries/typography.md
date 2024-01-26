@@ -2,12 +2,11 @@
 title: Tipografía
 ---
 
-Los estilos tipográficos del tema son independientes y fueron escritos para fomentar las buenas prácticas en la redacción de los artículos. Estos estilos están disponibles en entradas y páginas estáticas.
-
-La tipografía de mis trabajos **es universal** y pueden ser utilizados en cualquiera de mis temas. Tomé la decisión de normalizarlos para facilitar su uso y evitar problemas de compatibilidad. Esto también te permite **cambiar de tema conservando tus entradas**:
+La tipografía ahora **es universal** y pueden ser utilizados en cualquiera tema de zkreations. Tomé la decisión de normalizarlos para facilitar su uso y evitar problemas de compatibilidad. Esto también te permite **cambiar de tema conservando tus entradas**:
 
 {{< pagelink title="Tipografía universal" name="Códigos para insertar en articulos" href="https://www.zkreations.com/p/typography.html" >}}
 
+Los estilos tipográficos son independientes y fueron escritos para fomentar las **buenas prácticas** en la redacción de los artículos. Estos estilos están disponibles en entradas y páginas estáticas.
 
 ## Saltos de linea
 
@@ -34,3 +33,13 @@ Si por alguna razón necesitas utilizar los saltos de línea tradicionales, pued
 .typography { --typography-spacing: 0 }
 .typography br { display: initial }
 ```
+
+## Meteor Icons
+
+Puede usar todos los iconos de [Meteor Icons](https://meteoricons.com/) en su formato HTML. Tan solo copia el código HTML de cualquier icono y úsalo en donde lo necesites:
+
+```html
+<i data-i="adobe"></i>
+```
+
+El método HTML se mantiene actualizado con la última versión de Meteor Icons automáticamente, por lo tanto siempre tendrás acceso a los íconos más recientes.

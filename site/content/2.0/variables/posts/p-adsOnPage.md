@@ -2,7 +2,7 @@
 title: p.adsOnPage
 ---
 
-Habilita los anuncios insertados al inicio y al final de una página estática
+Habilita los anuncios insertados al inicio y al final de **una página estática**.
 
 ```xml
 <Variable name="p.adsOnPage" description="p.adsOnPage" type="string" value="false"/>

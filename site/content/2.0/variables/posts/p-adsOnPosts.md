@@ -2,7 +2,7 @@
 title: p.adsOnPosts
 ---
 
-Habilita los anuncios insertados al inicio y al final de una entrada.
+Habilita los anuncios insertados al inicio y al final de **una entrada**.
 
 ```xml
 <Variable name="p.adsOnPosts" description="p.adsOnPosts" type="string" value="true"/>

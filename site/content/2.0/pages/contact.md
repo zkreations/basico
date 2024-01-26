@@ -7,10 +7,10 @@ Código html para crear una página de contacto. Este formulario funciona con la
 
 ## Código
 
-Crea un formulario en [formspree.io](https://formspree.io) y obtén el identificador. Luego pega el código en una página estática reemplazando `YourID` por el identificador único de tu formulario:
+Crea un formulario en [formspree.io](https://formspree.io) y obtén el identificador. Luego pega el código en una página estática reemplazando `#YourID` por el identificador único de tu formulario. También reemplaza `#URL_PRIVACY_POLICY` por la URL de tu política de datos.
 
 ```html	
-<form action="https://formspree.icon/f/YourID" method="POST">
+<form action="https://formspree.icon/f/#YourID" method="POST">
 <!-- Sección -->
 <div class="form-section">
   <label class="form-label">Nombre completo</label>

@@ -2,7 +2,7 @@
 title: a.jumpLinkAlert
 ---
 
-Muestra un aviso en las entradas que no tienen un enlace de salto o etiqueta `more` especificada.
+Muestra un aviso en las entradas que no tienen el salto de línea o la etiqueta `<!--more -->` especificada.
 
 ```xml
 <Variable name="a.jumpLinkAlert" description="a.jumpLinkAlert" type="string" value="false"/>
@@ -22,7 +22,7 @@ Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 ## true
 
-La alerta aparecerá en todos los artículos en donde el salto de línea o etiqueta `<!--more-->` este ausente. Requiere iniciar sesión en Blogger ya que solo es visible para administradores.
+La alerta aparecerá en todos los artículos en donde el salto de línea o etiqueta `<!--more -->` este ausente. Requiere iniciar sesión en Blogger ya que solo es visible para administradores.
 
 {{< preview "/images/variables/admin/a-jumpLinkAlert-true.png" >}}
 

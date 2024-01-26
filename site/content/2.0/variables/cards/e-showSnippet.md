@@ -2,7 +2,7 @@
 title: e.showSnippet
 ---
 
-Muestra el texto de resumen de la entrada en la página de inicio.
+Muestra un resumen del texto de la entrada en la página de inicio.
 
 ```xml
 <Variable name="e.showSnippet" description="e.showSnippet" type="string" value="true"/>

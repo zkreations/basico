@@ -2,7 +2,7 @@
 title: e.snippetLines
 ---
 
-Cantidad máxima de líneas de texto para los resúmenes de artículos.
+Cantidad máxima de líneas de texto para los resúmenes de artículos. No tiene efecto si los resúmenes están deshabilitados.
 
 ```xml
 <Variable name="e.snippetLines" description="e.snippetLines" type="string" value="4"/>
