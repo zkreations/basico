@@ -47,3 +47,14 @@ Las opciones de personalización también están disponibles como clases y varia
 | `.width-container`       | `--width-container`        | Ancho del contenedor |
 | `.width-sidebar`         | `--width-sidebar`          | Ancho de la barra lateral |
 {{< /table >}}
+
+
+## Meteor Icons
+
+Este tema puede usar todos los iconos de [Meteor Icons](https://meteoricons.com/) en su formato HTML. Para ello, puedes copiar el código HTML de cualquier icono y usarlo en donde lo necesites:
+
+```html
+<i data-i="adobe"></i>
+```
+
+Este método es se mantiene actualizado con la última versión de Meteor Icons automáticamente, por lo tanto siempre tendrás acceso a los últimos iconos disponibles.
