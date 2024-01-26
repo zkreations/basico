@@ -4,6 +4,11 @@ title: Tipografía
 
 Los estilos tipográficos del tema son independientes y fueron escritos para fomentar las buenas prácticas en la redacción de los artículos. Estos estilos están disponibles en entradas y páginas estáticas.
 
+La tipografía de mis trabajos **es universal** y pueden ser utilizados en cualquiera de mis temas. Tomé la decisión de normalizarlos para facilitar su uso y evitar problemas de compatibilidad. Esto también te permite **cambiar de tema conservando tus entradas**:
+
+{{< pagelink title="Tipografía universal" name="Códigos para insertar en articulos" href="https://www.zkreations.com/p/typography.html" >}}
+
+
 ## Saltos de linea
 
 Los saltos de línea con las etiquetas `<br>` están deshabilitados por defecto, solo se interpretarán dentro de etiquetas `<p>`, con el fin de crear una estructura más limpia y consistente en los artículos. 
@@ -29,9 +34,3 @@ Si por alguna razón necesitas utilizar los saltos de línea tradicionales, pued
 .typography { --typography-spacing: 0 }
 .typography br { display: initial }
 ```
-
-## Tipografía
-
-La tipografía de mis trabajos **es universal** y pueden ser utilizados en cualquiera de mis temas. Tomé la decisión de normalizarlos para facilitar su uso y evitar problemas de compatibilidad. Esto también te permite **cambiar de tema conservando tus entradas**:
-
-{{< pagelink title="Tipografía universal" name="Códigos para insertar en articulos" href="https://www.zkreations.com/p/typography.html" >}}
