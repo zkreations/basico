@@ -57,4 +57,4 @@ Este tema puede usar todos los iconos de [Meteor Icons](https://meteoricons.com/
 <i data-i="adobe"></i>
 ```
 
-Este método es se mantiene actualizado con la última versión de Meteor Icons automáticamente, por lo tanto siempre tendrás acceso a los últimos iconos disponibles.
+Este método se mantiene actualizado con la última versión de Meteor Icons automáticamente, por lo tanto siempre tendrás acceso a los últimos iconos agregados.
