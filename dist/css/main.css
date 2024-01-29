@@ -1268,14 +1268,6 @@ ins.adsbygoogle[data-ad-status=unfilled] {
   background-color: var(--bg-template);
 }
 
-.width-container {
-  font-family: var(--width-container);
-}
-
-.width-sidebar {
-  font-family: var(--width-sidebar);
-}
-
 .absolute {
   position: absolute;
 }
