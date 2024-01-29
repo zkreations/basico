@@ -25,7 +25,7 @@ Recomiendo usar siempre la opción **Añadir CSS** para agregar código CSS pers
 
 ## Desarrolladores
 
-Las opciones de personalización también están disponibles como clases y variables CSS. La siguiente tabla muestra todas las opciones disponibles. Las variables de color son relativas al **esquema de color actual**.
+Las opciones de personalización de colores también están disponibles como clases y variables CSS. La siguiente tabla muestra todas las opciones disponibles. Las variables de color son relativas al **esquema de color actual**.
 
 {{< table >}}
 | Clase                    | Variable CSS               | Descripcion  |
@@ -44,8 +44,6 @@ Las opciones de personalización también están disponibles como clases y varia
 | `.bg-inset`              | `--bg-inset`               | Color de fondo de inserción |
 | `.bg-subtle`             | `--bg-subtle`              | Color de fondo sutil |
 | `.bg-template`           | `--bg-template`            | Color de fondo de plantilla |
-| `.width-container`       | `--width-container`        | Ancho del contenedor |
-| `.width-sidebar`         | `--width-sidebar`          | Ancho de la barra lateral |
 {{< /table >}}
 
 
