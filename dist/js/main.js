@@ -629,12 +629,12 @@
 
   const BLOG_ID = document.querySelector('meta[name="home-blog-admin"]');
   const CSS = 'https://www.blogger.com/dyn-css/authorization.css?targetBlogID=';
-  window.onload = () => {
-    if (BLOG_ID) {
+  if (BLOG_ID) {
+    window.onload = () => {
       const blogId = BLOG_ID.getAttribute('content');
       loadStyle(`${CSS}${blogId}`);
-    }
-  };
+    };
+  }
 
   const container = document.getElementById('related-posts');
   const Default = {
