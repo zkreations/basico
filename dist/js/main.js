@@ -201,7 +201,7 @@
   const FORM_SCRIPT = document.getElementById('form-script');
   const FORM_RESTORE = document.getElementById('form-restore');
   const REPLY_BUTTONS = document.querySelectorAll('[data-parent-id]');
-  const ACTIVE_CLASS$1 = 'is-active';
+  const ACTIVE_CLASS$2 = 'is-active';
   const REPLYING_CLASS = 'is-replying';
   const HAS_REPLY_FORM_CLASS = 'has-reply-form';
   const rootMargin = '200px';
@@ -297,13 +297,13 @@
           FORM_RESTORE.classList.add(REPLYING_CLASS);
         }
         if (currentActiveButton) {
-          currentActiveButton.classList.remove(ACTIVE_CLASS$1);
+          currentActiveButton.classList.remove(ACTIVE_CLASS$2);
         }
         const newSrc = `${originalSrc}&parentID=${parent}`;
         const {
           form: newForm
         } = createIframe(template, newSrc);
-        button.classList.add(ACTIVE_CLASS$1);
+        button.classList.add(ACTIVE_CLASS$2);
         currentActiveButton = button;
         replyContainer.innerHTML = newForm;
         container.classList.add(HAS_REPLY_FORM_CLASS);
@@ -318,7 +318,7 @@
         const currentReply = document.getElementById('reply-form');
         FORM_RESTORE.classList.remove(REPLYING_CLASS);
         COMMENT_FORM.innerHTML = originalForm;
-        currentActiveButton.classList.remove(ACTIVE_CLASS$1);
+        currentActiveButton.classList.remove(ACTIVE_CLASS$2);
         currentActiveButton = null;
         currentReply.parentElement.classList.remove(HAS_REPLY_FORM_CLASS);
         currentReply.remove();
@@ -331,7 +331,7 @@
   initDisqus();
 
   const navElements = document.querySelectorAll('.nav');
-  const ACTIVE_CLASS = 'is-open';
+  const ACTIVE_CLASS$1 = 'is-open';
   let isEventListenerActive = false;
 
   // Remove the underscore from the subnav links
@@ -347,8 +347,8 @@
     handleSubnavLinks(subnavLinks);
     subnavToggles.forEach(toggle => {
       toggle.addEventListener('click', () => {
-        toggle.parentNode.classList.toggle(ACTIVE_CLASS);
-        const isOpen = nav.querySelector(`.${ACTIVE_CLASS}`);
+        toggle.parentNode.classList.toggle(ACTIVE_CLASS$1);
+        const isOpen = nav.querySelector(`.${ACTIVE_CLASS$1}`);
         if (isOpen && !isEventListenerActive) {
           document.addEventListener('click', clickOutside);
           isEventListenerActive = true;
@@ -358,7 +358,7 @@
     function clickOutside(event) {
       if (!nav.contains(event.target)) {
         nav.querySelectorAll('.has-subnav').forEach(item => {
-          item.classList.remove(ACTIVE_CLASS);
+          item.classList.remove(ACTIVE_CLASS$1);
         });
         document.removeEventListener('click', clickOutside);
         isEventListenerActive = false;
@@ -367,27 +367,37 @@
   });
 
   const buttons = document.querySelectorAll('[data-outside]');
+  const ACTIVE_CLASS = 'is-active';
 
-  // Función para cerrar un elemento al hacer click fuera de él
-  // @param {HTMLElement} button Botón que abre el elemento
+  // Toggle the target element
+  // @param {HTMLElement} button - The button element
   function outsideClick(button) {
     if (!button) return;
     const target = document.getElementById(button.dataset.outside);
+    const affected = document.getElementById(button.dataset.affected);
     if (!target) return;
-    button.addEventListener('click', () => {
-      button.classList.toggle('is-active');
-      target.classList.toggle('is-active');
-    });
-    const clickOutside = event => {
-      if (!target.contains(event.target) && !button.contains(event.target)) {
-        button.classList.remove('is-active');
-        target.classList.remove('is-active');
+    function toggleClasses() {
+      button.classList.toggle(ACTIVE_CLASS);
+      target.classList.toggle(ACTIVE_CLASS);
+      if (affected) affected.classList.toggle(ACTIVE_CLASS);
+      if (button.classList.contains(ACTIVE_CLASS)) {
+        document.addEventListener('click', clickOutside);
+        return;
       }
-    };
-    document.addEventListener('click', clickOutside);
+      document.removeEventListener('click', clickOutside);
+    }
+    button.addEventListener('click', toggleClasses);
+    function clickOutside(event) {
+      if (!target.contains(event.target) && !button.contains(event.target)) {
+        toggleClasses();
+        document.removeEventListener('click', clickOutside);
+      }
+    }
+    const closeButton = target.querySelector('[data-close]');
+    if (closeButton) {
+      closeButton.addEventListener('click', toggleClasses);
+    }
   }
-
-  // Recorrer todos los botones que tengan el atributo data-outside
   buttons.forEach(button => {
     outsideClick(button);
   });

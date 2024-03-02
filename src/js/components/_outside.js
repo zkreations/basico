@@ -1,30 +1,46 @@
 const buttons = document.querySelectorAll('[data-outside]')
+const ACTIVE_CLASS = 'is-active'
 
-// Función para cerrar un elemento al hacer click fuera de él
-// @param {HTMLElement} button Botón que abre el elemento
+// Toggle the target element
+// @param {HTMLElement} button - The button element
 function outsideClick (button) {
   if (!button) return
 
   const target = document.getElementById(button.dataset.outside)
+  const affected = document.getElementById(button.dataset.affected)
 
   if (!target) return
 
-  button.addEventListener('click', () => {
-    button.classList.toggle('is-active')
-    target.classList.toggle('is-active')
-  })
+  function toggleClasses () {
+    button.classList.toggle(ACTIVE_CLASS)
+    target.classList.toggle(ACTIVE_CLASS)
 
-  const clickOutside = (event) => {
+    if (affected) affected.classList.toggle(ACTIVE_CLASS)
+
+    if (button.classList.contains(ACTIVE_CLASS)) {
+      document.addEventListener('click', clickOutside)
+      return
+    }
+
+    document.removeEventListener('click', clickOutside)
+  }
+
+  button.addEventListener('click', toggleClasses)
+
+  function clickOutside (event) {
     if (!target.contains(event.target) && !button.contains(event.target)) {
-      button.classList.remove('is-active')
-      target.classList.remove('is-active')
+      toggleClasses()
+      document.removeEventListener('click', clickOutside)
     }
   }
 
-  document.addEventListener('click', clickOutside)
+  const closeButton = target.querySelector('[data-close]')
+
+  if (closeButton) {
+    closeButton.addEventListener('click', toggleClasses)
+  }
 }
 
-// Recorrer todos los botones que tengan el atributo data-outside
 buttons.forEach((button) => {
   outsideClick(button)
 })
