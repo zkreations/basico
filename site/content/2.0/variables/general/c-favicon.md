@@ -2,7 +2,7 @@
 title: c.favicon
 ---
 
-Sustituye el icono favicon.ico (16x16 píxeles) de Blogger o del usuario con la imagen que has cargado. Se sugiere utilizar una imagen de al menos 192x192 píxeles subida previamente a Blogger.
+Sustituye el icono favicon.ico (16x16 píxeles) de Blogger con la imagen ingresada. Se recomienda utilizar una imagen de al menos 192x192 píxeles subida previamente a Blogger.
 
 ```xml
 <Variable name="c.favicon" description="c.favicon" type="string" value=""/>
@@ -21,7 +21,7 @@ Cualquier valor ingresado será interpretado como una URL de imagen.
 
 ## favicon.png
 
-Proporciona el enlace de tu favicon en alta resolución. Te sugerimos usar imágenes **alojadas en servidores de Google**, como Blogger o Google Fotos. Se generarán favicons en tamaños de 16x16, 32x32, 96x96, 180x180 y 192x192 para adaptarse a diferentes dispositivos.
+Proporciona el enlace de tu favicon en alta resolución **alojada en servidores de Google**, como Blogger o Google Fotos. Se generarán favicons de 16x16, 32x32, 96x96, 180x180 y 192x192 para diferentes dispositivos.
 
 ### 16x16
 

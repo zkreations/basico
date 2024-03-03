@@ -29,10 +29,12 @@ Especifica un modo de fijado, lo que permite fijar el sidebar o uno de sus eleme
 {{< table >}}
 | Modo           | Significado
 | -------------- | ---------------
+| `home`         | Fija el sidebar en la página principal
 | `post`         | Fija el sidebar en las entradas
 | `page`         | Fija el sidebar en las páginas estáticas
 | `single`       | Fija el sidebar en las entradas y páginas estáticas
 | `last`         | Fija el último elemento del sidebar
+| `last-in-home` | Fija el último elemento del sidebar en la página principal
 | `last-in-post` | Fija el último elemento del sidebar en las entradas
 | `last-in-page` | Fija el último elemento del sidebar en las páginas estáticas
 | `last-in-single` | Fija el último elemento del sidebar en las entradas y páginas estáticas

@@ -29,5 +29,3 @@ El código de todos los bloques de código se mostrará resaltado. Solo se carga
 ## false
 
 El código se mostrará sin resaltar.
-
-{{< preview "/images/variables/posts/p-codeHighlight-false.png" >}}

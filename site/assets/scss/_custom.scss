@@ -78,7 +78,7 @@ $data-types:(
 
   &-meta {
     background-color: var(--og-meta-bg, var(--bg-inset));
-    padding: 1rem 1.25rem;
+    padding: var(--og-meta-padding, 1rem 1.25rem);
     font-size: .875rem;
   }
 
@@ -87,6 +87,8 @@ $data-types:(
   }
 
   &-title {
+    background-color: var(--og-title-bg, transparent);
+    padding: var(--og-title-padding, 0);
     font-weight: var(--og-title-weight, 700);
     color: var(--og-title-color, var(--color-title));
     font-size: var(--og-title-size, 1.125rem);
@@ -98,11 +100,33 @@ $data-types:(
   }
 
   &-twitter {
+    --og-title-bg: rgb(0 0 0 / 75%);
+    --og-meta-bg: transparent;
+    --og-title-color: #fff;
+    --og-title-size: .875rem;
+    --og-title-weight: 400;
+    --og-url-transform: none;
+    --og-title-padding: 7px;
+    --og-meta-padding: .25rem 0 0;
+
+    .og-title {
+      position: absolute;
+      inset: auto auto 1rem 1rem;
+      border-radius: 0.25rem;
+      line-height: 1;
+    }
+
+    .og-image {
+      border-radius: 1rem;
+    }
+  }
+
+  &-bluesky {
     --og-meta-bg: transparent;
     --og-title-size: 1rem;
     --og-title-weight: 500;
     --og-url-transform: none;
-    border-radius: 16px;
+    border-radius: 6px;
     overflow: hidden;
     border: 1px solid var(--color-border);
   }

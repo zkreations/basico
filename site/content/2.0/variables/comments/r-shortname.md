@@ -25,3 +25,6 @@ El nombre corto o **"Shortname"** es el identificador de los comentarios de Disq
 ## false
 
 Los comentarios de Disqus no estarán disponibles y **se usará el sistema de Blogger**.
+
+
+{{< pagelink title="What's a shortname?" name="Aprende a encontrar el shortname" href="https://help.disqus.com/en/articles/1717111-what-s-a-shortname" >}}

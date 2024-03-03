@@ -259,7 +259,6 @@ body {
   background-size: cover;
   background-color: var(--body-background-color);
   color: var(--color-text);
-  font-family: var(--font-text-family);
   transition: background-color var(--duration);
   --block-space: 1rem;
 }
@@ -792,7 +791,6 @@ ins.adsbygoogle[data-ad-status=unfilled] {
 }
 .post-title {
   color: var(--color-title);
-  font-family: var(--font-title-family);
 }
 .post-body {
   line-height: 1.75;
@@ -1268,6 +1266,28 @@ ins.adsbygoogle[data-ad-status=unfilled] {
   background-color: var(--bg-template);
 }
 
+.font-title-family {
+  font-family: var(--font-title-family);
+}
+
+.font-text-family {
+  font-family: var(--font-text-family);
+}
+
+:where(.font-title) {
+  font: var(--font-title);
+  line-height: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+:where(.font-text) {
+  font: var(--font-text);
+  line-height: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
 .absolute {
   position: absolute;
 }
@@ -1558,14 +1578,6 @@ ins.adsbygoogle[data-ad-status=unfilled] {
 
 .events-auto {
   pointer-events: auto;
-}
-
-.font-title-family {
-  font-family: var(--font-title-family);
-}
-
-.font-text-family {
-  font-family: var(--font-text-family);
 }
 
 .fs-1 {

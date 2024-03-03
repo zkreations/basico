@@ -2,7 +2,7 @@
 title: ContactForm
 ---
 
-Muestra un formulario de contacto. Requiere configurar el identificador único de un formulario creado en [formspree.io](formspree.io) en la variable [c.formspree]({{< ref "c-formspree.md" >}})
+Muestra un formulario de contacto. Requiere configurar el identificador único de un formulario creado en [formspree.io](https://formspree.io/). en la variable [c.formspree]({{< ref "c-formspree.md" >}})
 
 
 ## Vista previa

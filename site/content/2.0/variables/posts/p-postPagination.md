@@ -28,4 +28,4 @@ La paginación se mostrará en las entradas individuales del blog, lo que permit
 
 ## false
 
-El botón no se mostrará en ningún bloque de código.
+La paginación no se mostrará en las entradas individuales del blog.

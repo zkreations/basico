@@ -2,7 +2,7 @@
 title: c.ogImage
 ---
 
-Imagen predeterminada (1200x630) para metadatos de **Open Graph**. Esta imagen se usará en la página de inicio y en todas las entradas que no tengan una imagen específica.
+Imagen predeterminada (1200x630) para metadatos de **Open Graph**. Esta imagen solo es visible en las redes sociales al compartir la página de inicio y en todas las entradas que no tengan una imagen.
 
 ```xml
 <Variable name="c.ogImage" description="c.ogImage" type="string" value=""/>
@@ -30,6 +30,10 @@ La imagen que se utilizará al compartir el enlace de la página principal en re
 ### Twitter
 
 {{< og type="twitter" >}}
+
+### Bluesky
+
+{{< og type="bluesky" >}}
 
 ### Discord
 

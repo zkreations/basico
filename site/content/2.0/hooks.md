@@ -39,6 +39,7 @@ Aunque puedes cambiar cualquier parte del tema, **no se recomienda hacerlo**. Po
 | `post:beforeFooter`   | Entrada       | Contenido antes del pie de página de la entrada
 | `post:handleComments` | Entrada       | Sistema de comentarios
 | `post:header`         | Entrada       | Cabecera de la entrada
+| `post:body`           | Entrada       | Cuerpo de la entrada
 | `post:pagination`     | Blog          | Paginación del blog y entradas
 | `post:shareButtons`   | Entrada       | Botones para compartir
 | `widget:AdSense`      | Widget        | Contenido del widget AdSense

@@ -2,7 +2,7 @@
 title: Error 404
 ---
 
-Por defecto, este tema no cuenta con una página de error 404, pero puedes agregar una agregando el código proporcionado a continuación.
+Por defecto, este tema no cuenta con una página de error 404, pero puedes crear una agregando el código proporcionado a continuación.
 
 
 ## Código

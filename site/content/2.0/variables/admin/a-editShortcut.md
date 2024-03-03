@@ -29,7 +29,3 @@ Habilita el botón para editar rápidamente una entrada.
 ## false
 
 Desactiva el botón para editar rápidamente una entrada.
-
-
-{{< preview "/images/variables/admin/a-editShortcut-false.png" >}}
-

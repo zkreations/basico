@@ -29,5 +29,3 @@ En todos los bloques de código se mostrará el botón que le permite al usuario
 ## false
 
 El botón no se mostrará en ningún bloque de código.
-
-{{< preview "/images/variables/posts/p-codeButton-false.png" >}}

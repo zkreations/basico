@@ -20,7 +20,7 @@ Puedes personalizar y visualizar los cambios en tiempo real a los distintos esqu
 
 ## CSS personalizado
 
-Recomiendo usar siempre la opción **Añadir CSS** para agregar código CSS personalizado. De esta manera todos los cambios que realices serán más fácil de localizar y eliminar en caso de que sea necesario.
+Es recomendable usar siempre la opción **Añadir CSS** para agregar código CSS personalizado. De esta manera todos los cambios que realices serán más fácil de localizar y eliminar en caso de que sea necesario.
 
 
 ## Desarrolladores

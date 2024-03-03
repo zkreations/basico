@@ -28,4 +28,4 @@ Las entradas relacionadas se mostrarán solo cuando el usuario se desplaza hasta
 
 ## false
 
-El botón no se mostrará en ningún bloque de código.
+Los artículos relacionados no se mostrarán en las entradas individuales del blog.

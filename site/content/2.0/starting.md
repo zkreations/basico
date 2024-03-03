@@ -10,7 +10,7 @@ weight: 1
 
 ## Empieza
 
-Los siguientes enlaces te ayudarán a empezar a usar el tema, si tienes alguna duda o problema puedes contactarme a través de mi [grupo de telegram](https://t.me/zkreation), estaremos encantados de ayudarte.
+Los siguientes enlaces te ayudarán a empezar a usar el tema, si tienes alguna duda o problema puedes contactarme a través de mi [grupo de telegram](https://t.me/zkreation).
 
 {{< pagelink title="Subir tema de Blogger" name="Copia de seguridad, restaurar widgets e instalar tema" href="https://www.zkreations.com/p/faq.html#subir-tema-de-blogger" >}}
 

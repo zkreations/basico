@@ -2,7 +2,7 @@
 title: e.titleTag
 ---
 
-Cantidad máxima de líneas de texto para los resúmenes de artículos.
+Establece el tipo de encabezado que se utilizará para mostrar el **título de la entrada**.
 
 ```xml
 <Variable name="e.titleTag" description="e.titleTag" type="string" value="h3"/>

@@ -29,5 +29,3 @@ El botón que permite a los usuarios cambiar la paleta de colores será visible.
 ## false
 
 El botón para cambiar la paleta de colores no será visible.
-
-{{< preview "/images/variables/general/c-uiToggle-false.png" >}}

@@ -21,7 +21,7 @@ Si el valor ingresado no es válido, el valor por defecto será `null`.
 
 ## page_type
 
-Especifica una lista de tipos de página, que se utilizará como referencia para **mostrar la barra lateral**. Aunque no es necesario una separación, recomiendo utilizar una coma para separar los tipos de página.
+Especifica una lista de tipos de página, que se utilizará como referencia para **mostrar la barra lateral**. Aunque no es necesario una separación, se recomienda utilizar una coma para separar los tipos de página.
 
 ```text
 home, index, search, labels, archive, item, static_page, error_page

@@ -13,7 +13,7 @@ Muestra una lista de enlaces utilizando las páginas del blog. También se acept
 {{< table >}}
 | Sección           | Visible           | Mutable           |
 | ----------------- | ----------------- | ----------------- |
-| Header            | Si                | [Widget Menú]({{< ref "Menu.md" >}}) |
+| Header            | Si                | [Widget Menú](Menu) |
 | Content           | Si                | **No**            |
 | Sidebar           | Si                | **No**            |
 | Footer            | Si                | **No**            |

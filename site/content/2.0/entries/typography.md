@@ -12,6 +12,15 @@ Los estilos tipográficos son independientes y fueron escritos para fomentar las
 
 Los saltos de línea con las etiquetas `<br>` están deshabilitados por defecto, solo se interpretarán dentro de etiquetas `<p>`, con el fin de crear una estructura más limpia y consistente en los artículos. 
 
+### Habilitar etiquetas br
+
+Si por alguna razón necesitas utilizar los saltos de línea tradicionales, puedes habilitarlos con el siguiente código CSS:
+
+```css
+.typography { --typography-spacing: 0 }
+.typography br { display: initial }
+```
+
 ### Variables CSS
 
 Algunas cualidades gráficas, como el espaciado entre líneas y en linea, y la distancia entre columnas en la galería, pueden ser modificadas con variables CSS. Para ello, agrega el siguiente código CSS modificando los valores a tu gusto: 
@@ -23,15 +32,6 @@ Algunas cualidades gráficas, como el espaciado entre líneas y en linea, y la d
   --typography-gallery-spacer: 2px;
   --typography-gallery-columns: 14rem;
 }
-```
-
-### Habilitar etiquetas br
-
-Si por alguna razón necesitas utilizar los saltos de línea tradicionales, puedes habilitarlos con el siguiente código CSS:
-
-```css
-.typography { --typography-spacing: 0 }
-.typography br { display: initial }
 ```
 
 ## Meteor Icons
