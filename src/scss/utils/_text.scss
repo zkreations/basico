@@ -1,14 +1,3 @@
-$fonts: (
-  "font-title-family",
-  "font-text-family",
-);
-
-@each $font in $fonts {
-  .#{$font} {
-    font-family: var(--#{$font});
-  }
-}
-
 .fs {
   @include utility(font-size, $font-size-values, true)
 }

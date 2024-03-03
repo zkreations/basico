@@ -48,7 +48,7 @@ Module for creating a post card
         </b:if>
         <div class="card-body flex column g-1 text-center">
           {{!-- If title is empty, display "No title" --}}
-          <b:tag  expr:name='data:var.titleTag' class='card-title m:fs-3 fs-4 fw-500'>
+          <b:tag  expr:name='data:var.titleTag' class='card-title font-title m:fs-3 fs-4 fw-500'>
             <a class='card-title-link' expr:href='data:post.link ?: data:post.url.canonical'>
               <b:eval expr='data:post.title.escaped != "" ? data:post.title.escaped : data:messages.noTitle'/>
             </a>
