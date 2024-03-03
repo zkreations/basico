@@ -8,6 +8,7 @@ Create post share
   <b:if cond='data:params and (data:params.url and data:params.title)'>
     <b:with value='[
         { name: "facebook", url: "https://www.facebook.com/sharer.php" },
+        { name: "bluesky", url: "https://bsky.app/intent/compose" },
         { name: "x", url: "https://twitter.com/intent/tweet" },
         { name: "pinterest", url: "https://pinterest.com/pin/create/button/" },
         { name: "whatsapp", url: "https://wa.me/" },
@@ -28,8 +29,8 @@ Create post share
               <b:attr name='target' value='_blank'/>
               <b:attr name='rel' value='noopener nofollow'/>
               <b:attr name='aria-label' expr:value='data:platform.name'/>
-              {{!-- if platform is whatsapp, add text parameter --}}
-              <b:attr cond='data:platform.name == "whatsapp"' expr:value='params(data:platform.url,{
+              {{!-- if platform is bluesky or whatsapp, add text parameter --}}
+              <b:attr cond='data:platform.name in ["whatsapp","bluesky"]' expr:value='params(data:platform.url,{
                   text: (data:params.title + " " + data:params.url)
                 })' name='href'/>
               {{!-- if platform is facebook, add u parameter --}}
