@@ -10,16 +10,21 @@ Add class settings to main wrapper
   {{!-- Determine sticky mode --}}
   <b:with value='[
       "true",
+      "home",
       "post",
       "page",
       "single",
       "last",
+      "last-in-home",
       "last-in-post",
       "last-in-page",
       "last-in-single"
     ] contains data:skin.vars.f_stickySidebar' var='stickyMode'>
     <b:if cond='data:stickyMode'>
       <b:switch var='data:skin.vars.f_stickySidebar'>
+        <b:case value='home'/>
+        <b:class cond='data:view.isHomepage' name='has-sticky-sidebar'/>
+
         <b:case value='post'/>
         <b:class cond='data:view.isPost' name='has-sticky-sidebar'/>
 
@@ -31,6 +36,9 @@ Add class settings to main wrapper
 
         <b:case value='last'/>
         <b:class name='has-sticky-widget'/>
+
+        <b:case value='last-in-home'/>
+        <b:class cond='data:view.isHomepage' name='has-sticky-widget'/>
 
         <b:case value='last-in-post'/>
         <b:class cond='data:view.isPost' name='has-sticky-widget'/>
