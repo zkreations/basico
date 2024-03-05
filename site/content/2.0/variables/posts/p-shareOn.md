@@ -29,5 +29,5 @@ Especifica una lista de redes sociales. El orden de los nombres especificados no
 {{< preview "/images/variables/posts/p-shareOn-all.png" >}}
 
 ```text
-facebook, bluesky, x, whatsapp, telegram, pinterest, tumblr, reddit, vk, linkedin
+facebook, bluesky, x, pinterest, threads, whatsapp, telegram, tumblr, reddit, vk, linkedin
 ```
