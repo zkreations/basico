@@ -114,7 +114,7 @@
     [number] Randomness of related posts. (1-99)
     <Variable name="p.relatedShuffle" description="p.relatedShuffle" type="string" value="5"/>
     
-    [list] Show specific share buttons. (facebook, bluesky, x, whatsapp, telegram, pinterest, tumblr, reddit, vk, linkedin)
+    [list] Show specific share buttons. (facebook, bluesky, x, pinterest, threads, whatsapp, telegram, tumblr, reddit, vk, linkedin)
     <Variable name="p.shareOn" description="p.shareOn" type="string" value="facebook, x, whatsapp, telegram"/>
     
     [list] TOC headings. (h1, h2, h3, h4, h5, h6)
@@ -596,18 +596,19 @@
       </b:includable>
       <b:includable id='@shared'>
         <b:if cond='data:params and (data:params.url and data:params.title)'>
-          <b:with value='[ { name: "facebook", url: "https://www.facebook.com/sharer.php" }, { name: "bluesky", url: "https://bsky.app/intent/compose" }, { name: "x", url: "https://twitter.com/intent/tweet" }, { name: "pinterest", url: "https://pinterest.com/pin/create/button/" }, { name: "whatsapp", url: "https://wa.me/" }, { name: "telegram", url: "https://t.me/share/url" }, { name: "tumblr", url: "https://tumblr.com/widgets/share/tool" }, { name: "reddit", url: "https://reddit.com/submit" }, { name: "vk", url: "http://vk.com/share.php" }, { name: "linkedin", url: "https://www.linkedin.com/sharing/share-offsite/" } ]' var='platforms'>
+          <b:with value='[ { name: "facebook", url: "https://www.facebook.com/sharer.php" }, { name: "bluesky", url: "https://bsky.app/intent/compose" }, { name: "x", url: "https://twitter.com/intent/tweet" }, { name: "pinterest", url: "https://pinterest.com/pin/create/button/" }, { name: "threads", url: "https://threads.net/intent/post" }, { name: "whatsapp", url: "https://wa.me/" }, { name: "telegram", url: "https://t.me/share/url" }, { name: "tumblr", url: "https://tumblr.com/widgets/share/tool" }, { name: "reddit", url: "https://reddit.com/submit" }, { name: "vk", url: "http://vk.com/share.php" }, { name: "linkedin", url: "https://www.linkedin.com/sharing/share-offsite/" } ]' var='platforms'>
           <b:with value='data:platforms filter (p => p.name in (data:list + "."))' var='availablePlatforms'>
             <b:if cond='data:availablePlatforms.any'>
               <div class='share-buttons'>
                 <b:class cond='data:class' expr:name='data:class'/>
                 <b:loop values='data:availablePlatforms' var='platform'>
                   <a class='share-button' expr:href='params(data:platform.url, data:params)'>
+                    <b:class expr:name='"share-" + data:platform.name'/>
                     <b:attr name='target' value='_blank'/>
                     <b:attr name='rel' value='noopener nofollow'/>
                     <b:attr name='aria-label' expr:value='data:platform.name'/>
-                    <b:attr cond='data:platform.name in ["whatsapp","bluesky"]' expr:value='params(data:platform.url,{ text: (data:params.title + " " + data:params.url) })' name='href'/>
-                    <b:attr cond='data:platform.name == "facebook"' expr:value='params(data:platform.url,{ u: data:params.url })' name='href'/>
+                    <b:attr expr:value='params(data:platform.url,{ text: (data:params.title + " " + data:params.url) })' name='href' cond='data:platform.name in ["whatsapp","bluesky","threads"]'/>
+                    <b:attr expr:value='params(data:platform.url,{ u: data:params.url })' name='href' cond='data:platform.name == "facebook"'/>
                     <b:include name='@meteor' data='{ icon: data:platform.name }'/>
                   </a>
                 </b:loop>

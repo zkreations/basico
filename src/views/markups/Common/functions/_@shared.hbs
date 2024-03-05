@@ -11,6 +11,7 @@ Create post share
         { name: "bluesky", url: "https://bsky.app/intent/compose" },
         { name: "x", url: "https://twitter.com/intent/tweet" },
         { name: "pinterest", url: "https://pinterest.com/pin/create/button/" },
+        { name: "threads", url: "https://threads.net/intent/post" },
         { name: "whatsapp", url: "https://wa.me/" },
         { name: "telegram", url: "https://t.me/share/url" },
         { name: "tumblr", url: "https://tumblr.com/widgets/share/tool" },
@@ -25,18 +26,20 @@ Create post share
           {{!-- Loop through platforms --}}
           <b:loop values='data:availablePlatforms' var='platform'>
             <a class='share-button' expr:href='params(data:platform.url, data:params)'>
+              {{!-- Add class for each platform --}}
+              <b:class expr:name='"share-" + data:platform.name'/>
               {{!-- Add target and rel attributes --}}
               <b:attr name='target' value='_blank'/>
               <b:attr name='rel' value='noopener nofollow'/>
               <b:attr name='aria-label' expr:value='data:platform.name'/>
               {{!-- if platform is bluesky or whatsapp, add text parameter --}}
-              <b:attr cond='data:platform.name in ["whatsapp","bluesky"]' expr:value='params(data:platform.url,{
+              <b:attr expr:value='params(data:platform.url,{
                   text: (data:params.title + " " + data:params.url)
-                })' name='href'/>
+                })' name='href' cond='data:platform.name in ["whatsapp","bluesky","threads"]'/>
               {{!-- if platform is facebook, add u parameter --}}
-              <b:attr cond='data:platform.name == "facebook"' expr:value='params(data:platform.url,{
+              <b:attr expr:value='params(data:platform.url,{
                   u: data:params.url
-                })' name='href'/>
+                })' name='href' cond='data:platform.name == "facebook"'/>
               {{!-- Determine the icon to display --}}
               <b:include name='@meteor' data='{ icon: data:platform.name }'/>
             </a>
