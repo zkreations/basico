@@ -1,6 +1,13 @@
 [dir=rtl] {
+  direction: rtl;
+
   .i-arrow-right-long,
   .i-arrow-left-long {
     transform: rotate(180deg);
+  }
+
+  .nav-item-toggle {
+    right: auto;
+    left: 0;
   }
 }

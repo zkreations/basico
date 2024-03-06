@@ -1213,9 +1213,16 @@ ins.adsbygoogle[data-ad-status=unfilled] {
   --ratio-y: 7;
 }
 
+[dir=rtl] {
+  direction: rtl;
+}
 [dir=rtl] .i-arrow-right-long,
 [dir=rtl] .i-arrow-left-long {
   transform: rotate(180deg);
+}
+[dir=rtl] .nav-item-toggle {
+  right: auto;
+  left: 0;
 }
 
 .primary {
