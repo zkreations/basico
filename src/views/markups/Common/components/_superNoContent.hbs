@@ -5,7 +5,7 @@ Remplace noContentPlaceholder
 <b:includable id='noContentPlaceholder'>
   {{!-- If there are no posts, show a message --}}
   <b:if cond='data:posts.empty'>
-    {{!-- If error, show a message --}} 
+    {{!-- If error, show a message --}}
     <b:if cond='data:view.isError'>
       <b:class name='error'/>
       <data:this.navMessage/>

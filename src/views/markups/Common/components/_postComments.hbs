@@ -207,7 +207,7 @@ Comment main
     </b:message>
   </div>
   {{!-- Show button to load comments --}}
-  <b:if cond='data:skin.vars.r_clickToLoad'> 
+  <b:if cond='data:skin.vars.r_clickToLoad'>
     <input class='comments-load none' type='checkbox' id='loadComments' name='loadComments'/>
     <label class='comments-load-button btn btn-full' for="loadComments">
       <b:include name='@meteor' data='{ icon: "blogger"}'/>
@@ -229,7 +229,7 @@ Comment Disqus
 --}}
 <b:includable id='comment:disqus'>
   {{!-- Show button to load comments --}}
-  <b:if cond='data:skin.vars.r_clickToLoad'> 
+  <b:if cond='data:skin.vars.r_clickToLoad'>
     <button class='comments-load-button btn btn-full' id='disqus_btn'>
       <b:include name="@meteor" data='{ icon: "disqus" }'/>
       <data:messages.postAComment/>
@@ -242,7 +242,7 @@ Comment Disqus
     <b:attr name='data-post-id' expr:value='data:post.id'/>
   </div>
 </b:includable>
-{{!-- 
+{{!--
 Handling comments
 @requires widget:Blog
 --}}

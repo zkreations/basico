@@ -39,7 +39,7 @@
   &-image {
     background-color: var(--bg-inset);
     margin-bottom: 1rem;
-    
+
     @include breakpoint(m) {
       margin-bottom: 2rem;
     }

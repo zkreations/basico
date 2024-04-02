@@ -4,13 +4,13 @@ Module for enqueueing assets
 --}}
 <b:includable id='m:enqueue'>
   {{!-- Main CSS --}}
-  <style>/*<![CDATA[*/{{asset '/dist/css/main'}}/*]]>*/</style>
+  <style>/*<![CDATA[*/{{asset '/dist/css/main.min.css'}}/*]]>*/</style>
   {{!-- Post and Page CSS --}}
   <b:if cond='data:view.isSingleItem'>
-    <style>/*<![CDATA[*/{{asset '/dist/css/typography'}}/*]]>*/</style>
+    <style>/*<![CDATA[*/{{asset '/dist/css/typography.min.css'}}/*]]>*/</style>
   </b:if>
   {{!-- Main Js --}}
-  {{#if (not devMode)}}
+  {{#unless development}}
   <script defer src='https://cdn.jsdelivr.net/gh/zkreations/basico@2/dist/js/main.min.js'></script>
-  {{/if}}
+  {{/unless}}
 </b:includable>

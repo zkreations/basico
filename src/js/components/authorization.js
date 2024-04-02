@@ -1,4 +1,4 @@
-import { loadStyle } from '../_utils'
+import { loadStyle } from '../utils'
 
 const BLOG_ID = document.querySelector('meta[name="home-blog-admin"]')
 const CSS = 'https://www.blogger.com/dyn-css/authorization.css?targetBlogID='

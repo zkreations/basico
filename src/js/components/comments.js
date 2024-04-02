@@ -1,4 +1,4 @@
-import { loadScript, isObserver } from '../_utils'
+import { loadScript, isObserver } from '../utils'
 
 const COMMENT_FORM = document.getElementById('comment-form')
 const FORM_SCRIPT = document.getElementById('form-script')

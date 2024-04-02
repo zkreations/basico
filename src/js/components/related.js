@@ -4,7 +4,7 @@ import {
   getDataAttrs,
   shuffle,
   isObserver
-} from '../_utils'
+} from '../utils'
 
 const container = document.getElementById('related-posts')
 

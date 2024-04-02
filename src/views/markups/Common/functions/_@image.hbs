@@ -40,7 +40,7 @@ Create custom image tag
         <b:with value='{
             a: "googleusercontent.com/img/a/",
             b: "googleusercontent.com/blogger_img_proxy"
-          }' var='host'> 
+          }' var='host'>
         <b:with value='data:params and ((data:image contains data:host.a) or (data:image contains data:host.b))
           ? ("-" + data:params)
           : ""' var='params'>

@@ -93,10 +93,9 @@
   // Get the data attributes from the element
   // @param {Object} dataset - The dataset object
   // @return {Object}
-  function getDataAttrs(_ref) {
-    let {
-      dataset = {}
-    } = _ref;
+  function getDataAttrs({
+    dataset = {}
+  }) {
     const attributes = {};
     Object.keys(dataset).forEach(key => {
       attributes[key] = normalizeData(dataset[key]);
@@ -583,8 +582,7 @@
   const isPurgeIcons = document.querySelector('body.is-purge-icons');
   const ICONS_STORAGE = 'meteorIcons';
   const ICONS_DATE_STORAGE = 'meteorIconsDate';
-  function iconElement() {
-    let icons = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  function iconElement(icons = {}) {
     iconElements.forEach(iconElement => {
       const icon = iconElement.getAttribute('data-i');
       const allAttributes = Array.from(iconElement.attributes).filter(attribute => attribute.nodeName !== 'data-i');

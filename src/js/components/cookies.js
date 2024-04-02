@@ -1,4 +1,4 @@
-import { loadScript, decodeHtml } from '../_utils'
+import { loadScript, decodeHtml } from '../utils'
 
 const REG_EXP = /cookieOptions\.(\w+)\) \|\| '(.+)'/g
 const cookieJs = '/js/cookienotice.js'

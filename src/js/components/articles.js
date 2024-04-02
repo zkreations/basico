@@ -1,5 +1,5 @@
-import { loadScript } from '../_utils'
-import { initToc } from './_toc'
+import { loadScript } from '../utils'
+import { initToc } from './toc'
 
 const ARTICLE = document.querySelector('.post')
 

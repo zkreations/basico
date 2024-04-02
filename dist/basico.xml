@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:js='true' b:defaultwidgetversion="2" b:layoutsVersion="3" expr:dir="data:blog.languageDirection" expr:lang="data:blog.locale">
+<html b:js='true' b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
 <b:include name='m:root'/>
 <head>
   <title>
@@ -24,7 +24,7 @@
     [boolean] Show shortcut to edit a post
     <Variable name="a.editShortcut" description="a.editShortcut" type="string" value="false"/>
     
-    [boolean] Show a warning when the line break is missing 
+    [boolean] Show a warning when the line break is missing
     <Variable name="a.jumpLinkAlert" description="a.jumpLinkAlert" type="string" value="false"/>
     
     [boolean] Enable the button to edit widgets
@@ -36,19 +36,19 @@
     <Variable name="c.avatar" description="c.avatar" type="string" value="https://lh3.googleusercontent.com/a/default-user"/>
     
     [image] HD Favicon URL.
-    <Variable name="c.favicon" description="c.favicon" type="string" value=""/>
+    <Variable name="c.favicon" description="c.favicon" type="string"/>
     
     [string] Formspree.io form ID.
-    <Variable name="c.formspree" description="c.formspree" type="string" value=""/>
+    <Variable name="c.formspree" description="c.formspree" type="string"/>
     
     [image] Url of default image.
-    <Variable name="c.image" description="c.image" type="string" value=""/>
+    <Variable name="c.image" description="c.image" type="string"/>
     
     [string] Image parameters: https://zkreations.com/image-params
     <Variable name="c.imageParams" description="c.imageParams" type="string" value="rw-l80-e30"/>
     
     [image] Url of default Open Graph image.
-    <Variable name="c.ogImage" description="c.ogImage" type="string" value=""/>
+    <Variable name="c.ogImage" description="c.ogImage" type="string"/>
     
     [url] Default author profile URL.
     <Variable name="c.profileUrl" description="c.profileUrl" type="string" value="https://www.blogger.com/"/>
@@ -138,7 +138,7 @@
     <Variable name="r.newestFirst" description="r.newestFirst" type="string" value="true"/>
     
     [string] Disqus shortname.
-    <Variable name="r.shortname" description="r.shortname" type="string" value=""/>
+    <Variable name="r.shortname" description="r.shortname" type="string"/>
   
     Functions
     =====================
@@ -176,7 +176,7 @@
   
     Customization
     =====================
-    # Mandatory variable to enable dynamic layout
+    [!] Mandatory variable to enable dynamic layout
     <Variable name="keycolor" description="keycolor" type="color" value="#2196f3" default="#2196f3"/>
     
     <Group description="Backgrounds">
@@ -210,15 +210,15 @@
       <Variable name="dark.color.header.title" description="Header color" type="color" value="#fff" default="#fff"/>
       <Variable name="dark.color.header.subtitle" description="Description Color" type="color" value="#e5e5e5" default="#e5e5e5"/>
     </Group>
-    <Group description="Widths">
-      <Variable name="width.container" description="Content width" type="length" value="1200px" max="2000px" min="900px" default="1200px"/>
-      <Variable name="width.sidebar" description="Sidebar width" type="length" value="340px" max="500px" min="200px" default="340px"/>
+    <Group description="Sizes">
+      <Variable name="width.container" description="Content width" type="length" min="900px" max="2000px" value="1200px" default="1200px"/>
+      <Variable name="width.sidebar" description="Sidebar width" type="length" min="200px" max="500px" value="340px" default="340px"/>
     </Group>
     <Group description="Font">
       <Variable name="font.title" description="Title Font" type="font" value="500 14px var(--font-roboto)" default="500 14px var(--font-roboto)"/>
       <Variable name="font.text" description="Text Font" type="font" value="14px var(--font-roboto)" default="14px var(--font-roboto)"/>
     </Group>
-    <Variable name="posts.text.color" description="posts.text.color" type="color" value="#666" hideEditor="true" default="#666"/>
+    <Variable name="posts.text.color" description="posts.text.color" hideEditor="true" type="color" value="#666" default="#666"/>
     <Variable name="posts.link.color" description="posts.link.color" type="string" value="#666"/>
     <Variable name="posts.text.font" description="posts.text.font" type="string" value="15px Roboto"/>
     <Variable name="posts.background.color" description="posts.background.color" type="string" value="transparent"/>
@@ -229,7 +229,9 @@
     Skin CSS variables
     =====================*/
     :root {
+      /* Backgrounds */
       --body-background: $(body.background);
+      /* Color */
       --primary: $(primary);
       --secondary: $(secondary);
       --body-background-color: $(body.background.color);
@@ -242,12 +244,15 @@
       --color-border: $(color.border);
       --color-header-title: $(color.header.title);
       --color-header-subtitle: $(color.header.subtitle);
-      --width-container: $(width.container);
-      --width-sidebar: $(width.sidebar);
+      /* Font */
       --font-title: $(font.title);
       --font-title-family: $(font.title.family);
       --font-text: $(font.text);
       --font-text-family: $(font.text.family);
+      /* Sizes */
+      --width-container: $(width.container);
+      --width-sidebar: $(width.sidebar);
+      /* Settings */
       --related-min-width: $(p.relatedMinWidth);
       --line-clamp: $(e.snippetLines);
       --toc-text: "$(t.toc)";
@@ -256,7 +261,7 @@
       --show-more-text: "$(t.showMore)";
       --show-less-text: "$(t.showLess)";
     }
-  
+    
     [data-theme="dark"] {
       --primary: $(dark.primary);
       --secondary: $(dark.secondary);
@@ -467,7 +472,7 @@
               <b:attr name='height' expr:value='data:height ?: data:image.height'/>
               <b:attr name='sizes' expr:value='data:sizes'/>
               <b:attr name='loading' expr:value='data:loading'/>
-              <b:with value='{ a: "googleusercontent.com/img/a/", b: "googleusercontent.com/blogger_img_proxy" }' var='host'> 
+              <b:with value='{ a: "googleusercontent.com/img/a/", b: "googleusercontent.com/blogger_img_proxy" }' var='host'>
               <b:with value='data:params and ((data:image contains data:host.a) or (data:image contains data:host.b)) ? ("-" + data:params) : ""' var='params'>
                 <b:attr name='src' expr:value='(data:srcset ? resizeImage(data:image, data:srcset.first, data:ratio) : data:image) + data:params'/>
               </b:with>
@@ -570,7 +575,7 @@
           <b:with value='data:src.isYoutube ? data:src.youtubeMaxResDefaultUrl : data:src' var='source'>
           <b:with value='{ set: resizeImage(data:source, (data:resizeSet ?: [700,400]), data:ratio), size: resizeImage(data:source, (data:resizeSet.first ?: 600), data:ratio), }' var='images'>
             <b:loop reverse='true' index='i' values='data:images.set' var='image'>
-              <b:with value='{ a: "googleusercontent.com/img/a/", b: "googleusercontent.com/blogger_img_proxy" }' var='host'> 
+              <b:with value='{ a: "googleusercontent.com/img/a/", b: "googleusercontent.com/blogger_img_proxy" }' var='host'>
               <b:with value='data:params and ((data:image.url contains data:host.a) or (data:image.url contains data:host.b)) ? (data:image.url + "-" + data:params) : data:image.url' var='imageUrl'>
                 <b:if cond='data:images.set.size != (data:i + 1)'>
                   <source expr:media='"(min-width:" + data:image.size + "px)"' expr:srcset='data:imageUrl'/>
@@ -758,9 +763,7 @@
         </p>
       </b:includable>
       <b:includable id='post:attachments'>
-        <b:with value='{ files: (data:post.enclosures where (p => p.url not contains "?ref=")),
-            sources: (data:post.enclosures where (p => p.url contains "?ref="))
-          }' var='attachments'>
+        <b:with value='{ files: (data:post.enclosures where (p => p.url not contains "?ref=")), sources: (data:post.enclosures where (p => p.url contains "?ref=")) }' var='attachments'>
           <b:if cond='data:attachments.files.any'>
             <b:include name='post:attachmentsItems' data='{ items: data:attachments.files }'/>
           </b:if>
@@ -960,7 +963,7 @@
             <b:param expr:value='data:post.numberOfComments' name='numComments'/>
           </b:message>
         </div>
-        <b:if cond='data:skin.vars.r_clickToLoad'> 
+        <b:if cond='data:skin.vars.r_clickToLoad'>
           <input class='comments-load none' type='checkbox' id='loadComments' name='loadComments'/>
           <label class='comments-load-button btn btn-full' for="loadComments">
             <b:include name='@meteor' data='{ icon: "blogger"}'/>
@@ -975,7 +978,7 @@
         </div>
       </b:includable>
       <b:includable id='comment:disqus'>
-        <b:if cond='data:skin.vars.r_clickToLoad'> 
+        <b:if cond='data:skin.vars.r_clickToLoad'>
           <button class='comments-load-button btn btn-full' id='disqus_btn'>
             <b:include name="@meteor" data='{ icon: "disqus" }'/>
             <data:messages.postAComment/>

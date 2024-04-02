@@ -1,4 +1,4 @@
-import { getAttrs, attrsToString, isExpired } from '../_utils'
+import { getAttrs, attrsToString, isExpired } from '../utils'
 
 const iconElements = document.querySelectorAll('[data-i]')
 const isPurgeIcons = document.querySelector('body.is-purge-icons')
