@@ -8,7 +8,7 @@
   </title>
   <b:include name='m:head'/>
   <b:if cond="!data:view.isLayoutMode">
-    <b:skin><![CDATA[
+    <b:skin version='2.1.0'><![CDATA[
     /*!
       * Name      : Basico - Basic Blogger Template
       * Theme URL : https://store.zkreations.com/2024/01/basico-tema-esencial.html
