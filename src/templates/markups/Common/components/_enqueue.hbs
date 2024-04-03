@@ -4,10 +4,22 @@ Module for enqueueing assets
 --}}
 <b:includable id='m:enqueue'>
   {{!-- Main CSS --}}
-  <style>/*<![CDATA[*/{{asset '/dist/css/main.min.css'}}/*]]>*/</style>
+  <style>/*<![CDATA[*/
+  {{#if development}}
+    {{asset '/dist/css/main.css'}}
+  {{else}}
+    {{asset '/dist/css/main.min.css'}}
+  {{/if}}
+  /*]]>*/</style>
   {{!-- Post and Page CSS --}}
   <b:if cond='data:view.isSingleItem'>
-    <style>/*<![CDATA[*/{{asset '/dist/css/typography.min.css'}}/*]]>*/</style>
+    <style>/*<![CDATA[*/
+    {{#if development}}
+      {{asset '/dist/css/typography.css'}}
+    {{else}}
+      {{asset '/dist/css/typography.min.css'}}
+    {{/if}}
+    /*]]>*/</style>
   </b:if>
   {{!-- Main Js --}}
   {{#unless development}}
