@@ -13,7 +13,7 @@ Establece la imagen por defecto cuando no hay imágenes en el articulo. **No se 
 Cualquier valor ingresado será interpretado como una URL de imagen.
 
 {{< table >}}
-| Value         | Nombre        | Tipo                 | Descripción   
+| Value         | Nombre        | Tipo                 | Descripción
 | ------------- | ------------- | ---------------------| --------------
 | `image.jpg`   | Sin imagen    | {{< data image >}}   | Imagen por defecto
 {{< /table >}}
@@ -22,18 +22,4 @@ Cualquier valor ingresado será interpretado como una URL de imagen.
 ## image.jpg
 
 Se utiliza como imagen por defecto cuando no hay imágenes en el articulo. Si el valor ingresado está vacío, se usará los estilos sin imagen del tema.
-
-### Con imagen
-
-{{< preview "/images/variables/general/image.png" >}}
-
-
-### Sin imagen
-
-{{< preview "/images/variables/general/no-image.png" >}}
-
-### Valor vacío
-
-{{< preview "/images/variables/general/image-empty.png" >}}
-
 

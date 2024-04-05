@@ -6,7 +6,7 @@ Muestra una imagen que puede contener un enlace y un texto descriptivo.
 
 ## Vista previa
 
-{{< preview "/images/widgets/Image.png" >}}
+{{< preview "/images/widgets/Image.webp" >}}
 
 ## Disponibilidad
 

@@ -4,7 +4,7 @@ icon: book-open
 weight: 1
 ---
 
-![portada](/images/portada.png)
+![portada](/images/portada.webp)
 
 <p class='lead'>Muchas gracias por adquirir o usar mis trabajos, espero que sea de tu agrado y te ayude a realizar tus proyectos. En este documento encontrarás información sobre como instalar y usar este tema.</p>
 

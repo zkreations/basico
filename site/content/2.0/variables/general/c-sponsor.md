@@ -14,7 +14,7 @@ Configura el  nombre de la etiqueta que se usará para identificar los artículo
 Cualquier valor ingresado será interpretado como la etiqueta de patrocinados.
 
 {{< table >}}
-| Value                       | Nombre                  | Tipo                | Descripción   
+| Value                       | Nombre                  | Tipo                | Descripción
 | --------------------------- | ----------------------- | ------------------- | --------------
 | {{< data "{label_name}" >}} | Nombre de la etiqueta   | {{< data string >}} | Etiqueta que marca los artículos patrocinados
 {{< /table >}}
@@ -27,5 +27,5 @@ El nombre de la etiqueta debe ser único y no debe coincidir con el nombre de ni
 
 Especifica el nombre de la etiqueta que marcará los artículos patrocinados. El nombre de la etiqueta también se  muestra junto al aviso de patrocinio.
 
-{{< preview "/images/variables/general/c-sponsorLabel.png" >}}
+{{< preview "/images/variables/general/c-sponsorLabel.webp" >}}
 

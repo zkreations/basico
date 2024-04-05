@@ -13,7 +13,7 @@ Lista de redes sociales que contiene los nombres de las redes sociales que se mo
 Si el valor ingresado no es válido, el valor por defecto será `null`.
 
 {{< table >}}
-| Value                       | Nombre                  | Tipo                | Descripción   
+| Value                       | Nombre                  | Tipo                | Descripción
 | --------------------------- | ----------------------- | ------------------- | --------------
 | {{< data "{share_list}" >}} | Lista de redes sociales | {{< data string >}} | Lista de redes sociales
 {{< /table >}}
@@ -26,7 +26,7 @@ Esta función solo gestiona los botones, pero no la **capacidad de compartir**. 
 
 Especifica una lista de redes sociales. El orden de los nombres especificados no influye en la posición del botón. Aunque no es necesario una separación, se recomiendo  utilizar comas para separar los valores disponibles:
 
-{{< preview "/images/variables/posts/p-shareOn-all.png" >}}
+{{< preview "/images/variables/posts/p-shareOn-all.webp" >}}
 
 ```text
 facebook, bluesky, x, pinterest, threads, whatsapp, telegram, tumblr, reddit, vk, linkedin

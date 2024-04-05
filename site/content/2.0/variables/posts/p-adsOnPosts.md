@@ -13,7 +13,7 @@ Habilita los anuncios insertados al inicio y al final de **una entrada**.
 Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 {{< table >}}
-| Value        | Nombre        | Tipo                 | Descripción   
+| Value        | Nombre        | Tipo                 | Descripción
 | ------------ | ------------- | -------------------- | --------------
 | `true`       | Verdadero     | {{< data boolean >}} | Muestra anuncios en entradas
 | `false`      | Falso         | {{< data boolean >}} | No muestra anuncios en entradas

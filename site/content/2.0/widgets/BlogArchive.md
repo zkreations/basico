@@ -8,11 +8,11 @@ Crea una lista de entradas organizada por año, mes, semana y día. También est
 
 ### Hierarchy
 
-{{< preview "/images/widgets/BlogArchiveHierarchy.png" >}}
+{{< preview "/images/widgets/BlogArchiveHierarchy.webp" >}}
 
 ### Flat
 
-{{< preview "/images/widgets/BlogArchiveFlat.png" >}}
+{{< preview "/images/widgets/BlogArchiveFlat.webp" >}}
 
 ## Disponibilidad
 

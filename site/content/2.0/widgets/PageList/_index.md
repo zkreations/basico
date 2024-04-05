@@ -6,7 +6,7 @@ Muestra una lista de enlaces utilizando las páginas del blog. También se acept
 
 ## Vista previa
 
-{{< preview "/images/widgets/PageList.png" >}}
+{{< preview "/images/widgets/PageList.webp" >}}
 
 ## Disponibilidad
 

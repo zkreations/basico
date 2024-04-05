@@ -26,35 +26,23 @@ Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 ## before-first-h
 
-La tabla de contenido estará disponible **antes** de la primera **etiqueta de encabezado**:
-
-{{< preview "/images/variables/posts/p-tocOn-before-first-h.png" >}}
+La tabla de contenido estará disponible **antes** de la primera **etiqueta de encabezado**.
 
 ## after-first-h
 
-La tabla de contenido estará disponible **después** de la primera **etiqueta de encabezado**:
-
-{{< preview "/images/variables/posts/p-tocOn-after-first-h.png" >}}
+La tabla de contenido estará disponible **después** de la primera **etiqueta de encabezado**.
 
 ## before-first-p
 
-La tabla de contenido estará disponible **antes** de la primera **etiqueta de párrafo**:
-
-{{< preview "/images/variables/posts/p-tocOn-before-first-p.png" >}}
-
+La tabla de contenido estará disponible **antes** de la primera **etiqueta de párrafo**.
 
 ## after-first-p
 
-La tabla de contenido estará disponible **después** de la primera **etiqueta de párrafo**:
-
-{{< preview "/images/variables/posts/p-tocOn-after-first-p.png" >}}
-
+La tabla de contenido estará disponible **después** de la primera **etiqueta de párrafo**.
 
 ## true
 
-La tabla de contenido estará disponible **antes del contenido**:
-
-{{< preview "/images/variables/posts/p-tocOn-true.png" >}}
+La tabla de contenido estará disponible **antes del contenido**.
 
 ## false
 

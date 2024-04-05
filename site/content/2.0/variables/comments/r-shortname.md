@@ -13,7 +13,7 @@ Habilita el [sistema de comentarios de Disqus](https://disqus.com/) en el Blog. 
 Cualquier valor ingresado se interpretará por defecto como `shortname`
 
 {{< table >}}
-| Value          | Nombre     | Tipo                | Descripción   
+| Value          | Nombre     | Tipo                | Descripción
 | -------------- | ---------- | ------------------- | --------------
 | `shortname`    | Shortname  | {{< data string >}} | Nombre corto de Disqus
 {{< /table >}}

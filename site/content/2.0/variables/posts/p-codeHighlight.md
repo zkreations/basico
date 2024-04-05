@@ -13,7 +13,7 @@ Habilita la funcionalidad de resaltado de sintaxis en los bloques de código, la
 Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 {{< table >}}
-| Value        | Nombre        | Tipo                 | Descripción   
+| Value        | Nombre        | Tipo                 | Descripción
 | ------------ | ------------- | -------------------- | --------------
 | `true`       | Verdadero     | {{< data boolean >}} | Resalta la sintaxis de los bloques de código
 | `false`      | Falso         | {{< data boolean >}} | El código se mostrará sin resaltar
@@ -24,7 +24,7 @@ Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 El código de todos los bloques de código se mostrará resaltado. Solo se cargará la librería de resaltado de sintaxis **si existe al menos un bloque de código** en la entrada.
 
-{{< preview "/images/variables/posts/p-codeHighlight-true.png" >}}
+{{< preview "/images/variables/posts/p-codeHighlight-true.webp" >}}
 
 ## false
 

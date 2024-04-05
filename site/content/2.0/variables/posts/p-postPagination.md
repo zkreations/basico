@@ -13,7 +13,7 @@ Muestra la paginación en las entradas individuales del blog.
 Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 {{< table >}}
-| Value        | Nombre        | Tipo                 | Descripción   
+| Value        | Nombre        | Tipo                 | Descripción
 | ------------ | ------------- | -------------------- | --------------
 | `true`       | Verdadero     | {{< data boolean >}} | Muestra la paginación en las entradas
 | `false`      | Falso         | {{< data boolean >}} | La paginación no se mostrará
@@ -24,7 +24,7 @@ Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 La paginación se mostrará en las entradas individuales del blog, lo que permite a los usuarios **navegar entre los artículos** del blog.
 
-{{< preview "/images/variables/posts/p-postPagination-true.png" >}}
+{{< preview "/images/variables/posts/p-postPagination-true.webp" >}}
 
 ## false
 

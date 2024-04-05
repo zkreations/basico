@@ -7,7 +7,7 @@ Muestra un formulario de contacto. Requiere configurar el identificador único d
 
 ## Vista previa
 
-{{< preview "/images/widgets/ContactForm.png" >}}
+{{< preview "/images/widgets/ContactForm.webp" >}}
 
 ## Disponibilidad
 

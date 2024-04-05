@@ -13,7 +13,7 @@ Habilita el botón de edición en el **Panel de Diseño de Blogger**. Por defect
 Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 {{< table >}}
-| Value     | Nombre    | Tipo                    | Descripción   
+| Value     | Nombre    | Tipo                    | Descripción
 | --------- | ----------| ------------------------| --------------
 | `true`    | Verdadero | {{< data boolean >}}    | Habilita el botón "Editar" en Diseño
 | `false`   | Falso     | {{< data boolean >}}    | Deshabilita el botón "Editar" en Diseño
@@ -24,10 +24,10 @@ Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 Habilita el botón de edición en los módulos de widgets del **Panel de Diseño de Blogger**.
 
-{{< preview "/images/variables/admin/a-layoutEdit-true.png" >}}
+{{< preview "/images/variables/admin/a-layoutEdit-true.webp" >}}
 
 ## false
 
 El botón no estará disponible y en cambio podrás editar los widgets dando clic en cualquier parte de ellos.
 
-{{< preview "/images/variables/admin/a-layoutEdit-false.png" >}}
+{{< preview "/images/variables/admin/a-layoutEdit-false.webp" >}}

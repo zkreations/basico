@@ -13,7 +13,7 @@ Habilita el botón que permite a los usuarios cambiar y guardar la paleta de col
 Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 {{< table >}}
-| Value        | Nombre        | Tipo                 | Descripción   
+| Value        | Nombre        | Tipo                 | Descripción
 | ------------ | ------------- | -------------------- | --------------
 | `true`       | Verdadero     | {{< data boolean >}} | Muestra el botón para cambiar la paleta de colores
 | `false`      | Falso         | {{< data boolean >}} | Deshabilita el botón para cambiar la paleta de colores
@@ -24,7 +24,7 @@ Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 El botón que permite a los usuarios cambiar la paleta de colores será visible.
 
-{{< preview "/images/variables/general/c-uiToggle-true.png" >}}
+{{< preview "/images/variables/general/c-uiToggle-true.webp" >}}
 
 ## false
 

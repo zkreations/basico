@@ -6,7 +6,7 @@ Destaca un post en la página principal. Puede ser utilizado para mostrar un art
 
 ## Vista previa
 
-{{< preview "/images/widgets/FeaturedPost.png" >}}
+{{< preview "/images/widgets/FeaturedPost.webp" >}}
 
 ## Disponibilidad
 

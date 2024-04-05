@@ -13,7 +13,7 @@ Sustituye el icono favicon.ico (16x16 píxeles) de Blogger con la imagen ingresa
 Cualquier valor ingresado será interpretado como una URL de imagen.
 
 {{< table >}}
-| Value         | Nombre        | Tipo                 | Descripción   
+| Value         | Nombre        | Tipo                 | Descripción
 | ------------- | ------------- | ---------------------| --------------
 | `favicon.png` | Favicon HD    | {{< data image >}}   | Favicon de alta resolución en formato PNG
 {{< /table >}}
@@ -25,14 +25,14 @@ Proporciona el enlace de tu favicon en alta resolución **alojada en servidores 
 
 ### 16x16
 
-{{< preview "/images/variables/general/favicon16.png" >}}
+{{< preview "/images/variables/general/favicon16.webp" >}}
 
 ### 32x32
 
-{{< preview "/images/variables/general/favicon32.png" >}}
+{{< preview "/images/variables/general/favicon32.webp" >}}
 
 ### 192x192
 
-{{< preview "/images/variables/general/favicon192.png" >}}
+{{< preview "/images/variables/general/favicon192.webp" >}}
 
 

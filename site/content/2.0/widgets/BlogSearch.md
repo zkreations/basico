@@ -6,7 +6,7 @@ Muestra un campo de búsqueda para buscar en el blog.
 
 ## Vista previa
 
-{{< preview "/images/widgets/BlogSearch.png" >}}
+{{< preview "/images/widgets/BlogSearch.webp" >}}
 
 ## Disponibilidad
 

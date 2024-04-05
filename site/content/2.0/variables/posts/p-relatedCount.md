@@ -13,7 +13,7 @@ Establece la cantidad de **entradas relacionadas** que se mostrarán en los art�
 Si el valor ingresado no es válido, el valor por defecto será `3`.
 
 {{< table >}}
-| Value   | Nombre             | Tipo                 | Descripción   
+| Value   | Nombre             | Tipo                 | Descripción
 | ------- | ------------------ | -------------------- | --------------
 | `1-12`  | Cantidad de posts  | {{< data number >}}  | Cantidad de elementos relacionados a mostrar
 {{< /table >}}

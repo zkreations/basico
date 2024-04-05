@@ -6,7 +6,7 @@ Crea una lista de iconos con enlaces en el footer del blog. En el nombre **debes
 
 ## Vista previa
 
-{{< preview "/images/widgets/LinkListSocial.png" >}}
+{{< preview "/images/widgets/LinkListSocial.webp" >}}
 
 
 ## Opciones

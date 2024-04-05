@@ -13,7 +13,7 @@ Ancho mínimo para las columnas de los artículos relacionados. El valor esperad
 Cualquier valor ingresado será interpretado como una unidad de medida.
 
 {{< table >}}
-| Value   | Nombre             | Tipo                  | Descripción   
+| Value   | Nombre             | Tipo                  | Descripción
 | ------- | ------------------ | --------------------- | --------------
 | `unit`  | Unidad de medida  | {{< data "{unit}" >}}  | Ancho mínimo de los artículos relacionados.
 {{< /table >}}

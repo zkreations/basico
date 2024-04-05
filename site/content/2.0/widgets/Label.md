@@ -6,7 +6,7 @@ Muestra la lista de etiquetas disponibles en el Blog.
 
 ## Vista previa
 
-{{< preview "/images/widgets/Label.png" >}}
+{{< preview "/images/widgets/Label.webp" >}}
 
 ## Disponibilidad
 

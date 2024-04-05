@@ -13,7 +13,7 @@ Inserta el formulario de comentarios en la parte superior, antes de mostrar la l
 Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 {{< table >}}
-| Value          | Nombre    | Tipo                    | Descripción   
+| Value          | Nombre    | Tipo                    | Descripción
 | -------------- | ----------| ------------------------| --------------
 | `true`         | Verdadero | {{< data boolean >}}    | Formulario de comentarios al **inicio**
 | `false`        | Falso     | {{< data boolean >}}    | Formulario de comentarios al **final**

@@ -8,11 +8,11 @@ Muestra el perfil del autor del blog, o los perfiles de los autores si se trata 
 
 ### Un autor
 
-{{< preview "/images/widgets/Profile.png" >}}
+{{< preview "/images/widgets/Profile.webp" >}}
 
 ### Equipo
 
-{{< preview "/images/widgets/ProfileTeam.png" >}}
+{{< preview "/images/widgets/ProfileTeam.webp" >}}
 
 ## Disponibilidad
 

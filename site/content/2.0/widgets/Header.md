@@ -6,7 +6,7 @@ Muestra el encabezado del sitio web, incluyendo el logo, el título y la descrip
 
 ## Vista previa
 
-{{< preview "/images/widgets/Header.png" >}}
+{{< preview "/images/widgets/Header.webp" >}}
 
 ## Disponibilidad
 

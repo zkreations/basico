@@ -6,7 +6,7 @@ Muestra una lista de las entradas más populares del blog, que se basa en el nú
 
 ## Vista previa
 
-{{< preview "/images/widgets/PopularPosts.png" >}}
+{{< preview "/images/widgets/PopularPosts.webp" >}}
 
 ## Disponibilidad
 

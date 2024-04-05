@@ -13,7 +13,7 @@ Esta opción reemplaza la implementación por defecto y **mostrará un botón** 
 Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 {{< table >}}
-| Value     | Nombre     | Tipo                   | Descripción   
+| Value     | Nombre     | Tipo                   | Descripción
 | --------- | ---------- | ---------------------- | --------------
 | `true`    | Verdadero  | {{< data boolean >}}   | Reemplaza comentarios por un botón
 | `false`   | Falso      | {{< data boolean >}}   | Los comentarios cargarán normalmente
@@ -23,7 +23,7 @@ Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 Muestra un botón, que al ser pulsado cargará los recursos necesarios para insertar el sistema de comentarios configurado, el botón será borrado inmediatamente después.
 
-{{< preview "/images/variables/comments/r-clickToLoad-true.png" >}}
+{{< preview "/images/variables/comments/r-clickToLoad-true.webp" >}}
 
 ## false
 

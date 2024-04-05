@@ -14,7 +14,7 @@ Si el valor ingresado no es válido, el valor por defecto será `light`.
 
 
 {{< table >}}
-| Value        | Nombre        | Tipo                 | Descripción   
+| Value        | Nombre        | Tipo                 | Descripción
 | ------------ | ------------- | -------------------- | --------------
 | `light`   | Claro | {{< data string >}}    | Establece el esquema de colores claros
 | `dark`   | Oscuro | {{< data string >}}    | Establece el esquema de colores oscuros
@@ -25,11 +25,11 @@ Si el valor ingresado no es válido, el valor por defecto será `light`.
 
 Establece como predeterminado el esquema de colores claros.
 
-{{< preview "/images/variables/general/c-uiScheme-light.png" >}}
+{{< preview "/images/variables/general/c-uiScheme-light.webp" >}}
 
 
 ## dark
 
 Establece como predeterminado el esquema de colores oscuros.
 
-{{< preview "/images/variables/general/c-uiScheme-dark.png" >}}
+{{< preview "/images/variables/general/c-uiScheme-dark.webp" >}}

@@ -13,7 +13,7 @@ Habilita el botón para editar rápidamente una entrada. El botón solo es visib
 Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 {{< table >}}
-| Value     | Nombre    | Tipo                    | Descripción   
+| Value     | Nombre    | Tipo                    | Descripción
 | --------- | ----------| ------------------------| --------------
 | `true`    | Verdadero | {{< data boolean >}}    | Habilita el botón "Editar" en las entradas
 | `false`   | Falso     | {{< data boolean >}}    | Deshabilita el botón "Editar" en las entradas
@@ -24,7 +24,7 @@ Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 Habilita el botón para editar rápidamente una entrada.
 
-{{< preview "/images/variables/admin/a-editShortcut-true.png" >}}
+{{< preview "/images/variables/admin/a-editShortcut-true.webp" >}}
 
 ## false
 

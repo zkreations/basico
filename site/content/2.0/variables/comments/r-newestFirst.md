@@ -13,7 +13,7 @@ Establece por defecto el orden de los comentarios desde el más reciente al más
 Si el valor ingresado no es válido, el valor por defecto será `true`.
 
 {{< table >}}
-| Value          | Nombre    | Tipo                    | Descripción   
+| Value          | Nombre    | Tipo                    | Descripción
 | -------------- | ----------| ------------------------| --------------
 | `true`         | Verdadero | {{< data boolean >}}    | Ordena comentarios del **más nuevo** al más antiguo
 | `false`        | Falso     | {{< data boolean >}}    | Ordena comentarios del **más antiguo** al más nuevo

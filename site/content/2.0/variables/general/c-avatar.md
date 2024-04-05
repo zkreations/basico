@@ -13,7 +13,7 @@ Asigna automáticamente una **imagen de perfil por defecto** a autores sin foto,
 Cualquier valor ingresado será interpretado como una URL de imagen.
 
 {{< table >}}
-| Value        | Nombre    | Tipo                 | Descripción   
+| Value        | Nombre    | Tipo                 | Descripción
 | ------------ | ----------| ---------------------| --------------
 | `avatar.jpg` | Avatar    | {{< data image >}}   | URL de avatar por defecto
 {{< /table >}}
@@ -23,5 +23,5 @@ Cualquier valor ingresado será interpretado como una URL de imagen.
 
 Se utilizará para autores sin foto y comentarios anónimos o temporales, o para perfiles de blogger con la imagen de perfil predeterminada ([blogger_logo_round_35.png](https://www.blogger.com/img/blogger_logo_round_35.png)).
 
-{{< preview "/images/variables/general/c-avatar.png" >}}
+{{< preview "/images/variables/general/c-avatar.webp" >}}
 
