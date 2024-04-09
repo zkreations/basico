@@ -1,8 +1,6 @@
 {
-  "name": "hamlet",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "basico",
+  "version": "2.1.0",
   "type": "module",
   "scripts": {
     "start": "hamlet --mode production --watch",
@@ -10,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zkreations/hamlet.git"
+    "url": "git+https://github.com/zkreations/basico.git"
   },
   "author": "zkreations <daniel@zkreations.com> (https://zkreations.com/)",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/zkreations/hamlet/issues"
+    "url": "https://github.com/zkreations/basico/issues"
   },
-  "homepage": "https://github.com/zkreations/hamlet#readme",
+  "homepage": "https://github.com/zkreations/basico#readme",
   "dependencies": {
     "hamlet-builder": "^1.0.4"
   },
